@@ -1,5 +1,29 @@
 {
   "dependencies": {
+    "com.cysharp.unitask": {
+      "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask/#master",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "8042b29ff87dd5506d7aad72bd6d8d7405985f27"
+    },
+    "com.miniit.dicontainer": {
+      "version": "https://github.com/Mini-IT/Mini-container.git#main",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "3587b1ac55a447c5c027e4ec8e2b5707c347441a"
+    },
+    "com.miniit.framework.statemachine": {
+      "version": "https://github.com/Mini-IT/unity-framework-statemachine.git#main",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.miniit.dicontainer": "2.0.0",
+        "com.cysharp.unitask": "2.3.0"
+      },
+      "hash": "a893ec95da976750c377142da5a8bc0a1b9afcad"
+    },
     "com.unity.2d.animation": {
       "version": "9.1.3",
       "depth": 1,
