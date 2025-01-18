@@ -612,6 +612,7 @@ GameObject:
   - component: {fileID: 1991689291}
   - component: {fileID: 1991689293}
   - component: {fileID: 1991689292}
+  - component: {fileID: 1991689294}
   m_Layer: 0
   m_Name: '[DIRoot]'
   m_TagString: Untagged
@@ -663,6 +664,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rootContainers:
   - {fileID: 1991689292}
+--- !u!114 &1991689294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991689290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bf377bb15049774aa7d198484638322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _autoRegisterGameObjects: []
+  _autoResolveGameObjects: []
+  _popups:
+  - {fileID: 4256800369051739346, guid: e6228d4724cdcf140880690312262d60, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
