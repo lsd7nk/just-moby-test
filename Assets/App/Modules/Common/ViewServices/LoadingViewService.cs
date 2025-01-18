@@ -6,14 +6,19 @@ namespace App.Common
 {
     public sealed class LoadingViewService : IViewService<LoadingView>
     {
+        public void SetLoadingProgress(float value)
+        {
+
+        }
+
         public void SetView(LoadingView view)
         {
-            throw new System.NotImplementedException();
+
         }
 
         public UniTask HideViewAsync(CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            return UniTask.CompletedTask;
         }
     }
 }

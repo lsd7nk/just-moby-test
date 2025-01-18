@@ -8,12 +8,12 @@ namespace App.Common
     {
         public void SetView(LobbyView view)
         {
-            throw new System.NotImplementedException();
+
         }
 
         public UniTask HideViewAsync(CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            return UniTask.CompletedTask;
         }
     }
 }

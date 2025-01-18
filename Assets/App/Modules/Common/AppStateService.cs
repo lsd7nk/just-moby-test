@@ -14,6 +14,12 @@ namespace App.Common
             _stateMachine = stateMachine;
 
             Initialize();
+            GoToState(AppStateType.Loading).Forget();
+        }
+
+        public async UniTask GoToState(AppStateType state)
+        {
+            await GoToState<AppStatePayload>(state, null);
         }
 
         public async UniTask GoToState<TPayload>(AppStateType state, TPayload payload)
