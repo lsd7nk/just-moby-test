@@ -1,8 +1,6 @@
-using UnityEngine;
-
 namespace App.Common.Views
 {
-    public sealed class LoadingView : MonoBehaviour
+    public sealed class LoadingView : StateView
     {
 
     }

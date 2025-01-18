@@ -1,8 +1,6 @@
-﻿using UnityEngine;
-
-namespace App.Common.Views
+﻿namespace App.Common.Views
 {
-    public sealed class GameView : MonoBehaviour
+    public sealed class GameView : StateView
     {
 
     }

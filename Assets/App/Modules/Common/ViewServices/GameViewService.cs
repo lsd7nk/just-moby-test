@@ -1,19 +1,9 @@
-﻿using Cysharp.Threading.Tasks;
-using App.Common.Views;
-using System.Threading;
+﻿using App.Common.Views;
 
 namespace App.Common
 {
-    public sealed class GameViewService : IViewService<GameView>
+    public sealed class GameViewService : ViewService<GameView>
     {
-        public void SetView(GameView view)
-        {
 
-        }
-
-        public UniTask HideViewAsync(CancellationToken cancellationToken)
-        {
-            return UniTask.CompletedTask;
-        }
     }
 }

@@ -1,8 +1,6 @@
-﻿using UnityEngine;
-
-namespace App.Common.Views
+﻿namespace App.Common.Views
 {
-    public sealed class LobbyView : MonoBehaviour
+    public sealed class LobbyView : StateView
     {
 
     }

@@ -1,19 +1,9 @@
-﻿using Cysharp.Threading.Tasks;
-using App.Common.Views;
-using System.Threading;
+﻿using App.Common.Views;
 
 namespace App.Common
 {
-    public sealed class LobbyViewService : IViewService<LobbyView>
+    public sealed class LobbyViewService : ViewService<LobbyView>
     {
-        public void SetView(LobbyView view)
-        {
 
-        }
-
-        public UniTask HideViewAsync(CancellationToken cancellationToken)
-        {
-            return UniTask.CompletedTask;
-        }
     }
 }
