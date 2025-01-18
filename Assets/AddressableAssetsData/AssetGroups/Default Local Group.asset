@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 63a7cbb77cb6a6641a3e343b4183f2a8
+  m_SerializeEntries:
+  - m_GUID: 5ae8de980ef80b54d8fa540a774ec4ef
+    m_Address: Assets/App/Modules/Prefabs/Common/LoadingView.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aa305f70371d3f04086612fceea88280
+    m_Address: Assets/App/Modules/Prefabs/Common/GameView.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c712ce46f2ac9bb459f0f47e15e1d79b
+    m_Address: Assets/App/Modules/Prefabs/Common/LobbyView.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f3cc918820ce8244a892166b41f8a90e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: bc191a2dffc1ebf4b8895c4d5055b4c8, type: 2}
+    - {fileID: 11400000, guid: 79c96d3632d911a43940c53db42fe371, type: 2}
