@@ -25,6 +25,7 @@ namespace App
             builder.RegisterScoped<LobbyViewService>();
             builder.RegisterScoped<GameViewService>();
 
+            builder.RegisterSingleton<IFirebaseDependenciesService, FirebaseDependenciesService>();
             builder.RegisterSingleton<IAdService, AdService>();
         }
     }
