@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id">
+  <string name="gcm_defaultSenderId" translatable="false">1034149758191</string>
+  <string name="google_storage_bucket" translatable="false">just-mobi-test.firebasestorage.app</string>
+  <string name="project_id" translatable="false">just-mobi-test</string>
+  <string name="google_api_key" translatable="false">AIzaSyAU2NePHlOjDH_p2iDod8axXZmfg_XX1YY</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAU2NePHlOjDH_p2iDod8axXZmfg_XX1YY</string>
+  <string name="google_app_id" translatable="false">1:1034149758191:android:62ed3f969183a4573ac71a</string>
+</resources>
