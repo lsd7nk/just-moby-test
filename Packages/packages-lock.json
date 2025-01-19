@@ -29,6 +29,14 @@
         "com.google.external-dependency-manager": "1.2.183"
       }
     },
+    "com.google.firebase.remote-config": {
+      "version": "file:../Assets/GooglePackages/com.google.firebase.remote-config-12.4.0.tgz",
+      "depth": 0,
+      "source": "local-tarball",
+      "dependencies": {
+        "com.google.firebase.app": "12.4.0"
+      }
+    },
     "com.miniit.dicontainer": {
       "version": "https://github.com/Mini-IT/Mini-container.git#main",
       "depth": 0,
