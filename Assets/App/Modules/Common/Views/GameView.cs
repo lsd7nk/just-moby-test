@@ -1,6 +1,6 @@
 ﻿namespace App.Common.Views
 {
-    public sealed class GameView : StateView
+    public sealed class GameView : AdsView
     {
 
     }

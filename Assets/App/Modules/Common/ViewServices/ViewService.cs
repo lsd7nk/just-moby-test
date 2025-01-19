@@ -20,9 +20,8 @@ namespace App.Common
             await _view.HideAsync(cancellationToken);
         }
 
-        protected virtual void OnViewSet()
-        {
+        public virtual void Initialize() { }
 
-        }
+        protected virtual void OnViewSet() { }
     }
 }

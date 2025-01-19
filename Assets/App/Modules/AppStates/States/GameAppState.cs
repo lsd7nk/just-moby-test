@@ -1,14 +1,16 @@
 ﻿using Cysharp.Threading.Tasks;
 using System.Threading;
 using App.Common;
+using App.Ads;
 
 namespace App.AppStates
 {
-    public sealed class GameAppState : AppState<AppStatePayload>
+    public sealed class GameAppState : AdsAppState<AppStatePayload>
     {
         private readonly GameViewService _viewService;
 
-        public GameAppState(AppStateAssets appStateAssets, GameViewService viewService) : base(appStateAssets)
+        public GameAppState(AppStateAssets appStateAssets, GameViewService viewService, IAdService adService)
+            : base(appStateAssets, adService)
         {
             _viewService = viewService;
         }

@@ -3,6 +3,7 @@ using App.AppStates;
 using StateMachine;
 using App.Common;
 using App.Utils;
+using App.Ads;
 
 namespace App
 {
@@ -23,6 +24,8 @@ namespace App
             builder.RegisterScoped<LoadingViewService>();
             builder.RegisterScoped<LobbyViewService>();
             builder.RegisterScoped<GameViewService>();
+
+            builder.RegisterSingleton<IAdService, AdService>();
         }
     }
 }

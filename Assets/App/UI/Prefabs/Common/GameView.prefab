@@ -597,6 +597,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4198351775385334839}
   - component: {fileID: 4880556030069092002}
+  - component: {fileID: 804645202438653026}
   m_Layer: 5
   m_Name: GameView
   m_TagString: Untagged
@@ -638,6 +639,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiViews:
   - {fileID: 7998593867058547454}
+  <BannerAdjuster>k__BackingField: {fileID: 804645202438653026}
+--- !u!114 &804645202438653026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3045135858804145787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdff98505136f974d97298b13a1ccb54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adjustableViews: []
+  _bannerHiddenPosition: {x: 0, y: 0, z: 0}
+  _bannerVisiblePosition: {x: 0, y: 0, z: 0}
+  _platformSpecifics:
+  - <Platform>k__BackingField: 7
+    <bannerHiddenPosition>k__BackingField: {x: 0, y: 150, z: 0}
+    <bannerVisiblePosition>k__BackingField: {x: 0, y: 150, z: 0}
+  - <Platform>k__BackingField: 11
+    <bannerHiddenPosition>k__BackingField: {x: 0, y: 150, z: 0}
+    <bannerVisiblePosition>k__BackingField: {x: 0, y: 150, z: 0}
+  - <Platform>k__BackingField: 8
+    <bannerHiddenPosition>k__BackingField: {x: 0, y: 150, z: 0}
+    <bannerVisiblePosition>k__BackingField: {x: 0, y: 250, z: 0}
 --- !u!1 &7262171600794731171
 GameObject:
   m_ObjectHideFlags: 0
