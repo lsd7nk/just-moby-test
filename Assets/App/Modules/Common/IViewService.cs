@@ -11,6 +11,7 @@ namespace App.Common
 
     public interface IViewService
     {
+        void Initialize();
         UniTask HideViewAsync(CancellationToken cancellationToken);
     }
 }

@@ -5659,6 +5659,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8583801988463645367}
   - component: {fileID: 8029827925696871004}
+  - component: {fileID: 4121160856820317357}
   m_Layer: 5
   m_Name: LobbyView
   m_TagString: Untagged
@@ -5703,6 +5704,33 @@ MonoBehaviour:
   _uiViews:
   - {fileID: 5599764967073284774}
   - {fileID: 4720897061012302496}
+  <BannerAdjuster>k__BackingField: {fileID: 4121160856820317357}
+--- !u!114 &4121160856820317357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7889670920213179810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdff98505136f974d97298b13a1ccb54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adjustableViews:
+  - {fileID: 3916808434722775076}
+  _bannerHiddenPosition: {x: 0, y: 0, z: 0}
+  _bannerVisiblePosition: {x: 0, y: 0, z: 0}
+  _platformSpecifics:
+  - <Platform>k__BackingField: 7
+    <bannerHiddenPosition>k__BackingField: {x: 0, y: 200, z: 0}
+    <bannerVisiblePosition>k__BackingField: {x: 0, y: 350, z: 0}
+  - <Platform>k__BackingField: 11
+    <bannerHiddenPosition>k__BackingField: {x: 0, y: 200, z: 0}
+    <bannerVisiblePosition>k__BackingField: {x: 0, y: 350, z: 0}
+  - <Platform>k__BackingField: 8
+    <bannerHiddenPosition>k__BackingField: {x: 0, y: 200, z: 0}
+    <bannerVisiblePosition>k__BackingField: {x: 0, y: 450, z: 0}
 --- !u!1 &8839260924626470488
 GameObject:
   m_ObjectHideFlags: 0
@@ -5827,7 +5855,7 @@ MonoBehaviour:
       AnimationType: 2
       Move:
         AnimationType: 2
-        Enabled: 1
+        Enabled: 0
         From: {x: 0, y: 0, z: 0}
         To: {x: 0, y: 0, z: 0}
         By: {x: 0, y: 0, z: 0}
@@ -5899,7 +5927,7 @@ MonoBehaviour:
         Duration: 1
       Scale:
         AnimationType: 2
-        Enabled: 0
+        Enabled: 1
         From: {x: 0, y: 0, z: 0}
         To: {x: 0, y: 0, z: 0}
         By: {x: 0, y: 0, z: 0}
@@ -5909,7 +5937,7 @@ MonoBehaviour:
         NumberOfLoops: -1
         LoopType: 1
         EaseType: 0
-        Ease: 1
+        Ease: 10
         AnimationCurve:
           serializedVersion: 2
           m_Curve: []
@@ -5917,10 +5945,10 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         StartDelay: 0
-        Duration: 1
+        Duration: 0.4
       Fade:
         AnimationType: 2
-        Enabled: 0
+        Enabled: 1
         From: 0
         To: 0
         By: 0.5
@@ -5928,15 +5956,42 @@ MonoBehaviour:
         NumberOfLoops: -1
         LoopType: 1
         EaseType: 0
-        Ease: 1
+        Ease: 10
         AnimationCurve:
           serializedVersion: 2
-          m_Curve: []
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: -1.0093929
+            outSlope: -1.0093929
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.10579801
+          - serializedVersion: 3
+            time: 0.43539733
+            value: -0.1452646
+            inSlope: 0.45110166
+            outSlope: 0.45110166
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 3.2986887
+            outSlope: 3.2986887
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.048237097
+            outWeight: 0.33333334
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
         StartDelay: 0
-        Duration: 1
+        Duration: 0.4
     AutoStartLoopAnimation: 1
     LoadSelectedPresetAtRuntime: 0
     InstantAnimation: 0
@@ -6128,7 +6183,7 @@ MonoBehaviour:
       AnimationType: 1
       Move:
         AnimationType: 1
-        Enabled: 1
+        Enabled: 0
         From: {x: 0, y: 0, z: 0}
         To: {x: 0, y: 0, z: 0}
         By: {x: 0, y: 0, z: 0}
@@ -6200,7 +6255,7 @@ MonoBehaviour:
         Duration: 1
       Scale:
         AnimationType: 1
-        Enabled: 0
+        Enabled: 1
         From: {x: 0, y: 0, z: 0}
         To: {x: 0, y: 0, z: 0}
         By: {x: 0, y: 0, z: 0}
@@ -6210,18 +6265,18 @@ MonoBehaviour:
         NumberOfLoops: -1
         LoopType: 1
         EaseType: 0
-        Ease: 1
+        Ease: 10
         AnimationCurve:
           serializedVersion: 2
           m_Curve: []
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-        StartDelay: 0
-        Duration: 1
+        StartDelay: 0.5
+        Duration: 0.4
       Fade:
         AnimationType: 1
-        Enabled: 0
+        Enabled: 1
         From: 0
         To: 0
         By: 0.5
@@ -6229,15 +6284,42 @@ MonoBehaviour:
         NumberOfLoops: -1
         LoopType: 1
         EaseType: 0
-        Ease: 1
+        Ease: 10
         AnimationCurve:
           serializedVersion: 2
-          m_Curve: []
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 4.076614
+            outSlope: 4.076614
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.027994407
+          - serializedVersion: 3
+            time: 0.5632243
+            value: 1.0493644
+            inSlope: 0.029337792
+            outSlope: 0.029337792
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.20928949
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0.34905368
+            outSlope: 0.34905368
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.07913994
+            outWeight: 0.33333334
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-        StartDelay: 0
-        Duration: 1
+        StartDelay: 0.5
+        Duration: 0.4
     AutoStartLoopAnimation: 1
     LoadSelectedPresetAtRuntime: 0
     InstantAnimation: 0

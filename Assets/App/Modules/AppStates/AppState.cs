@@ -55,6 +55,7 @@ namespace App.AppStates
             }
 
             service.SetView(view);
+            service.Initialize();
         }
 
         private bool TryGetInstance<T>(out T component) where T : Component
