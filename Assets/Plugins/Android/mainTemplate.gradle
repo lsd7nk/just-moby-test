@@ -10,6 +10,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-unity:12.4.0' // Packages/com.google.firebase.analytics/Firebase/Editor/AnalyticsDependencies.xml:18
     implementation 'com.google.firebase:firebase-app-unity:12.4.0' // Packages/com.google.firebase.app/Firebase/Editor/AppDependencies.xml:22
     implementation 'com.google.firebase:firebase-common:21.0.0' // Packages/com.google.firebase.app/Firebase/Editor/AppDependencies.xml:13
+    implementation 'com.google.firebase:firebase-config:22.0.1' // Packages/com.google.firebase.remote-config/Firebase/Editor/RemoteConfigDependencies.xml:13
+    implementation 'com.google.firebase:firebase-config-unity:12.4.0' // Packages/com.google.firebase.remote-config/Firebase/Editor/RemoteConfigDependencies.xml:20
     implementation 'com.unity3d.ads:unity-ads:4.13.0' // Assets/LevelPlay/Editor/ISUnityAdsAdapterDependencies.xml:12
     implementation 'com.unity3d.ads-mediation:mediation-sdk:8.6.1' // Assets/LevelPlay/Editor/IronSourceSDKDependencies.xml:5
     implementation 'com.unity3d.ads-mediation:unityads-adapter:4.3.47' // Assets/LevelPlay/Editor/ISUnityAdsAdapterDependencies.xml:5

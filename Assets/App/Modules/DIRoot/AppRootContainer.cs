@@ -27,6 +27,7 @@ namespace App
 
             builder.RegisterSingleton<IFirebaseDependenciesService, FirebaseDependenciesService>();
             builder.RegisterSingleton<IAdService, AdService>();
+            builder.RegisterSingleton<AppConfig>();
         }
     }
 }

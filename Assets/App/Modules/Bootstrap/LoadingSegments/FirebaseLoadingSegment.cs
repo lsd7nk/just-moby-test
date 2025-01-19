@@ -1,7 +1,6 @@
-using App.Bootstrap.LoadingSegments;
 using Cysharp.Threading.Tasks;
 
-namespace App
+namespace App.Bootstrap.LoadingSegments
 {
     public sealed class FirebaseLoadingSegment : LoadingSegment
     {
