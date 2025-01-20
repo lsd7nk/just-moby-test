@@ -49,7 +49,7 @@ namespace App
             Debug.Log($"[{nameof(FirebaseConfig)}] Successful config download from the cloud");
         }
 
-        protected virtual void LocalLoad()
+        protected virtual void OnFailedCloudLoad()
         {
             Debug.Log($"[{nameof(FirebaseConfig)}] Loading config from local");
 
@@ -75,7 +75,7 @@ namespace App
             else
             {
                 Debug.Log($"[{nameof(FirebaseConfig)}] Failed configuration download from the cloud");
-                LocalLoad();
+                OnFailedCloudLoad();
             }
 
             Initialized = true;
@@ -90,13 +90,13 @@ namespace App
         {
             if (!_firebase.FirebaseIsAvailable)
             {
-                LocalLoad();
+                OnFailedCloudLoad();
                 return;
             }
 
             if (InternetReachabilityVerifier.Instance.status == InternetReachabilityVerifier.Status.Offline)
             {
-                LocalLoad();
+                OnFailedCloudLoad();
                 return;
             }
 
