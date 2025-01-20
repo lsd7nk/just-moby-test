@@ -1,6 +1,10 @@
 {
   "dependencies": {
     "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask/#master",
+    "com.google.external-dependency-manager": "file:../Assets/GooglePackages/com.google.external-dependency-manager-1.2.183.tgz",
+    "com.google.firebase.analytics": "file:../Assets/GooglePackages/com.google.firebase.analytics-12.4.0.tgz",
+    "com.google.firebase.app": "file:../Assets/GooglePackages/com.google.firebase.app-12.4.0.tgz",
+    "com.google.firebase.remote-config": "file:../Assets/GooglePackages/com.google.firebase.remote-config-12.4.0.tgz",
     "com.miniit.dicontainer": "https://github.com/Mini-IT/Mini-container.git#main",
     "com.miniit.framework.statemachine": "https://github.com/Mini-IT/unity-framework-statemachine.git#main",
     "com.unity.addressables": "1.22.3",

@@ -1,9 +1,9 @@
-﻿using App.AppStates;
-using App.Bootstrap.LoadingSegments;
-using App.Common;
+﻿using App.Bootstrap.LoadingSegments;
 using Cysharp.Threading.Tasks;
 using MiniContainer;
+using App.AppStates;
 using UnityEngine;
+using App.Common;
 
 namespace App.Bootstrap
 {
@@ -22,6 +22,8 @@ namespace App.Bootstrap
 
         protected override void RegisterLoadingFlow()
         {
+            RegisterLoadingSegment<AppConfigLoadingSegment>()
+                .AddDependency(RegisterLoadingSegment<FirebaseLoadingSegment>());
             RegisterLoadingSegment<EmptyLoadingSegment>();
         }
 
