@@ -161,7 +161,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0
+  m_FillAmount: 0.100000024
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -520,6 +520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiViews:
   - {fileID: 1747608543760857951}
+  _progressor: {fileID: 9002955650936050057}
 --- !u!223 &3927215228539770747
 Canvas:
   m_ObjectHideFlags: 0
@@ -1086,4 +1087,4 @@ MonoBehaviour:
   m_minValue: 0
   m_maxValue: 1
   m_wholeNumbers: 0
-  m_currentValue: 0
+  m_currentValue: 0.100000024

@@ -6,7 +6,7 @@ namespace App.Common
     {
         public void SetLoadingProgress(float value)
         {
-
+            _view?.SetProgress(value);
         }
     }
 }
