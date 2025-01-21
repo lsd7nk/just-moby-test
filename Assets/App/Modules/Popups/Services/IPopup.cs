@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System;
 
 namespace App.Popups
@@ -7,6 +8,7 @@ namespace App.Popups
         Type ViewType { get; }
 
         void Initialize(IPopupView view, params object[] args);
+        UniTask HideAsync();
         void Hide();
     }
 }

@@ -70,6 +70,31 @@ namespace App.Localization
             };
         }
 
+        public static string GetCurrentLocaleCode()
+        {
+            return GetLocaleCode(CurrentLanguage);
+        }
+
+        public static Locale GetLocale(string localeCode)
+        {
+            if (!string.IsNullOrEmpty(localeCode))
+            {
+                int availableLocalesCount = LocalizationSettings.AvailableLocales.Locales.Count;
+
+                for (int i = 0; i < availableLocalesCount; ++i)
+                {
+                    var availableLocale = LocalizationSettings.AvailableLocales.Locales[i];
+
+                    if (availableLocale.Identifier.Code == localeCode)
+                    {
+                        return availableLocale;
+                    }
+                }
+            }
+
+            return LocalizationSettings.ProjectLocale;
+        }
+
         public static LanguageType GetLanguageType(string localeCode)
         {
             return localeCode switch

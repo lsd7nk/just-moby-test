@@ -2,6 +2,7 @@
 using UnityEngine;
 using App.Utils;
 using System;
+using TMPro;
 
 namespace App.Popups
 {
@@ -10,19 +11,39 @@ namespace App.Popups
         public override Type ServiceType => typeof(SettingsPopup);
 
         [Header("Buttons")]
+        [SerializeField] private UIButton _languageButton;
         [SerializeField] private UIButton _restartButton;
         [SerializeField] private UIButton _lobbyButton;
+
+        [Header("Labels")]
+        [SerializeField] private TMP_Text _languageLabel;
+        [SerializeField] private TMP_Text _versionLabel;
 
         public void RefreshButtons(bool inGameState)
         {
             _restartButton.gameObject.SetActive(inGameState);
             _lobbyButton.gameObject.SetActive(inGameState);
         }
+
+        public void SetLanguageText(string value)
+        {
+            _languageLabel.text = value;
+        }
+
+        public void SetVersionText(string value)
+        {
+            _versionLabel.text = value;
+        }
     }
 
 
     public partial class SettingsPopupView
     {
+        public void AddLanguageButtonOnCickHandler(Action handler)
+        {
+            UIButtonUtils.AddOnCickHandler(_languageButton, handler);
+        }
+
         public void AddRestartButtonOnCickHandler(Action handler)
         {
             UIButtonUtils.AddOnCickHandler(_restartButton, handler);

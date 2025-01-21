@@ -17,6 +17,11 @@ namespace App.Popups
             await UIPopupUtils.HideAsync(UIPopup);
         }
 
+        public void Hide()
+        {
+            UIPopup.Hide();
+        }
+
         private void Start()
         {
             UIPopup.Show();

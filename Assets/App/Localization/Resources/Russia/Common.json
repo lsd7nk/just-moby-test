@@ -4,11 +4,27 @@
 		"topic": "Язык"
 	},
 	{
-		"tags": [ "language", "english" ],
+		"tags": [ "language", "en" ],
 		"topic": "Английский"
 	},
 	{
-		"tags": [ "language", "russia" ],
+		"tags": [ "language", "ru" ],
 		"topic": "Русский"
+	},
+	{
+		"tags": [ "button", "play" ],
+		"topic": "Играть"
+	},
+	{
+		"tags": [ "settings" ],
+		"topic": "Настройки"
+	},
+	{
+		"tags": [ "version" ],
+		"topic": "Версия: {0}"
+	},
+	{
+		"tags": [ "loading" ],
+		"topic": "Загрузка..."
 	}
 ]

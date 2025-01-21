@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 1207999077566908505}
   - component: {fileID: 1846558393839691368}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -523,7 +523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: {fileID: 1207999077566908505}
-  _key: language/russia
+  _key: language/ru
 --- !u!1 &5770851785676122961
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 2758107002697731414}
   - component: {fileID: 6197087539158738958}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -672,7 +672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: {fileID: 2758107002697731414}
-  _key: language/english
+  _key: language/en
 --- !u!1 &6525259926713035671
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,6 +682,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5998823603276390908}
+  - component: {fileID: 3386662429036749707}
   - component: {fileID: 8909125567153089369}
   - component: {fileID: 560985548967294159}
   - component: {fileID: 8072842580787110236}
@@ -713,6 +714,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3386662429036749707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6525259926713035671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f942fd56a7d514e43a5eb4e13688d5db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <UIPopup>k__BackingField: {fileID: 8072842580787110236}
+  _languageToggles:
+  - {fileID: 747206830042243636}
+  - {fileID: 6701660097504663396}
 --- !u!223 &8909125567153089369
 Canvas:
   m_ObjectHideFlags: 0
@@ -883,7 +900,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         StartDelay: 0
-        Duration: 0.2
+        Duration: 0.3
       Fade:
         AnimationType: 2
         Enabled: 1
@@ -920,7 +937,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         StartDelay: 0
-        Duration: 0.15
+        Duration: 0.2
     LoadSelectedPresetAtRuntime: 0
     InstantAnimation: 0
     OnFinished:
@@ -1410,8 +1427,9 @@ GameObject:
   - component: {fileID: 2177883659582576482}
   - component: {fileID: 8410141639876301292}
   - component: {fileID: 7805496082950527859}
+  - component: {fileID: 6701660097504663396}
   m_Layer: 5
-  m_Name: BtnRu
+  m_Name: RuToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1541,7 +1559,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0}
   StartScale: {x: 1, y: 1, z: 1}
   StartAlpha: 1
-  AllowMultipleClicks: 1
+  AllowMultipleClicks: 0
   DisableButtonBetweenClicksInterval: 0.2
   DeselectButtonAfterClick: 0
   InputData:
@@ -2121,7 +2139,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         StartDelay: 0
-        Duration: 0.4
+        Duration: 0.3
       Fade:
         AnimationType: 4
         Enabled: 0
@@ -2704,6 +2722,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &6701660097504663396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7145184902891520582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c960422c3b67fff489ab8de879edc655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Language>k__BackingField: 1
+  _toggle: {fileID: 8410141639876301292}
 --- !u!1 &7878630110738456490
 GameObject:
   m_ObjectHideFlags: 0
@@ -2970,8 +3002,9 @@ GameObject:
   - component: {fileID: 2778624134759119880}
   - component: {fileID: 5261454509245810585}
   - component: {fileID: 6829415054102828894}
+  - component: {fileID: 747206830042243636}
   m_Layer: 5
-  m_Name: BtnEn
+  m_Name: EnToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3101,7 +3134,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0}
   StartScale: {x: 1, y: 1, z: 1}
   StartAlpha: 1
-  AllowMultipleClicks: 1
+  AllowMultipleClicks: 0
   DisableButtonBetweenClicksInterval: 0.2
   DeselectButtonAfterClick: 0
   InputData:
@@ -3681,7 +3714,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         StartDelay: 0
-        Duration: 0.4
+        Duration: 0.3
       Fade:
         AnimationType: 4
         Enabled: 0
@@ -4252,3 +4285,17 @@ MonoBehaviour:
   TargetLabel: 0
   TextLabel: {fileID: 0}
   ToggleProgressor: {fileID: 0}
+--- !u!114 &747206830042243636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9137197018571934998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c960422c3b67fff489ab8de879edc655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Language>k__BackingField: 0
+  _toggle: {fileID: 6829415054102828894}

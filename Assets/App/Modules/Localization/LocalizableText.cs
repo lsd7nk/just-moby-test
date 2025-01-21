@@ -16,6 +16,7 @@ namespace App.Localization
 
         private void OnEnable()
         {
+            OnLocalize();
             LocalizationProvider.OnLocalizeEvent += OnLocalize;
         }
 
