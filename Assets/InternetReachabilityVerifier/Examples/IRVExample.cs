@@ -183,7 +183,7 @@ public class IRVExample : MonoBehaviour
         if (testRequest != null)
         {
 #if IRVEXAMPLE_USE_WEBREQUEST
-            bool error = testRequest.isNetworkError;
+            bool error = testRequest.result == UnityWebRequest.Result.ConnectionError;
             float progress = testRequest.downloadProgress;
 #else
             bool error = testRequest.error != null && testRequest.error.Length > 0;
