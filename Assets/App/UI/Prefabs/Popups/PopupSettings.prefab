@@ -587,7 +587,19 @@ MonoBehaviour:
         CustomSortingLayer: Default
       Event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 8808915860124991076}
+            m_TargetAssemblyTypeName: Doozy.Engine.UI.UIPopup, Assembly-CSharp
+            m_MethodName: Hide
+            m_Mode: 6
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       GameEvents: []
       SoundData:
         SoundSource: 0
@@ -621,7 +633,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         StartDelay: 0
-        Duration: 0.4
+        Duration: 0.3
       Rotate:
         AnimationType: 4
         Enabled: 0
@@ -664,7 +676,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         StartDelay: 0
-        Duration: 0.4
+        Duration: 0.3
       Fade:
         AnimationType: 4
         Enabled: 0
@@ -2823,6 +2835,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <UIPopup>k__BackingField: {fileID: 8808915860124991076}
+  _restartButton: {fileID: 5010651259823743747}
+  _lobbyButton: {fileID: 4186681209128353736}
 --- !u!223 &8823638791944518850
 Canvas:
   m_ObjectHideFlags: 0
@@ -2884,7 +2898,7 @@ MonoBehaviour:
   AutoHideAfterShow: 0
   AutoHideAfterShowDelay: 3
   AutoSelectButtonAfterShow: 0
-  AutoSelectPreviouslySelectedButtonAfterHide: 1
+  AutoSelectPreviouslySelectedButtonAfterHide: 0
   BlockBackButton: 1
   CanvasName: MasterCanvas
   Container:
@@ -2993,7 +3007,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         StartDelay: 0
-        Duration: 0.2
+        Duration: 0.3
       Fade:
         AnimationType: 2
         Enabled: 1
@@ -3030,7 +3044,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         StartDelay: 0
-        Duration: 0.15
+        Duration: 0.2
     LoadSelectedPresetAtRuntime: 0
     InstantAnimation: 0
     OnFinished:
@@ -6593,7 +6607,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         StartDelay: 0
-        Duration: 0.4
+        Duration: 0.3
       Rotate:
         AnimationType: 4
         Enabled: 0
@@ -6636,7 +6650,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         StartDelay: 0
-        Duration: 0.4
+        Duration: 0.3
       Fade:
         AnimationType: 4
         Enabled: 0
@@ -9520,7 +9534,19 @@ MonoBehaviour:
         CustomSortingLayer: Default
       Event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 8808915860124991076}
+            m_TargetAssemblyTypeName: Doozy.Engine.UI.UIPopup, Assembly-CSharp
+            m_MethodName: Hide
+            m_Mode: 6
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       GameEvents: []
       SoundData:
         SoundSource: 0
@@ -9554,7 +9580,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         StartDelay: 0
-        Duration: 0.4
+        Duration: 0.3
       Rotate:
         AnimationType: 4
         Enabled: 0
@@ -9597,7 +9623,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         StartDelay: 0
-        Duration: 0.4
+        Duration: 0.3
       Fade:
         AnimationType: 4
         Enabled: 0
@@ -12112,7 +12138,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         StartDelay: 0
-        Duration: 0.4
+        Duration: 0.3
       Rotate:
         AnimationType: 4
         Enabled: 0
@@ -12155,7 +12181,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         StartDelay: 0
-        Duration: 0.4
+        Duration: 0.3
       Fade:
         AnimationType: 4
         Enabled: 0

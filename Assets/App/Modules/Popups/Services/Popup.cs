@@ -7,11 +7,11 @@ namespace App.Popups
     {
         public Type ViewType => typeof(TView);
 
-        protected IPopupView _view;
+        protected TView _view;
 
         public virtual void Initialize(IPopupView view, params object[] args)
         {
-            _view = view;
+            _view = (TView)view;
         }
 
         public void Hide()
