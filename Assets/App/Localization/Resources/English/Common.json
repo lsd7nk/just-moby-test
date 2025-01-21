@@ -1,0 +1,14 @@
+[
+	{
+		"tags": [ "language" ],
+		"topic": "Language"
+	},
+	{
+		"tags": [ "language", "english" ],
+		"topic": "English"
+	},
+	{
+		"tags": [ "language", "russia" ],
+		"topic": "Russia"
+	}
+]

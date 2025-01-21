@@ -22,6 +22,7 @@ namespace App.Bootstrap
 
         protected override void RegisterLoadingFlow()
         {
+            RegisterLoadingSegment<LocalizationLoadingSegment>();
             RegisterLoadingSegment<AppConfigLoadingSegment>()
                 .AddDependency(RegisterLoadingSegment<FirebaseLoadingSegment>());
             RegisterLoadingSegment<EmptyLoadingSegment>();
