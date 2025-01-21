@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7728024021570750985}
   - component: {fileID: 5404431150834778783}
   - component: {fileID: 9086254029838004078}
+  - component: {fileID: 2318952007385381640}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -595,6 +596,18 @@ MonoBehaviour:
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 2318952007385381640}
+            m_TargetAssemblyTypeName: App.Vibrations.VibrationButton, Assembly-CSharp
+            m_MethodName: SendPlayEvent
+            m_Mode: 0
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: 
               m_IntArgument: 0
               m_FloatArgument: 0
               m_StringArgument: 
@@ -2438,6 +2451,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &2318952007385381640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841629825768091504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f98e669c66b7224a93fed5c6f5503de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0
 --- !u!1 &1129276994500864673
 GameObject:
   m_ObjectHideFlags: 0
@@ -3394,6 +3420,7 @@ GameObject:
   - component: {fileID: 3443875924435242711}
   - component: {fileID: 7198942782992418620}
   - component: {fileID: 4452750351107126402}
+  - component: {fileID: 5379946787812157721}
   m_Layer: 5
   m_Name: LanguageButton
   m_TagString: Untagged
@@ -3968,7 +3995,19 @@ MonoBehaviour:
         CustomSortingLayer: Default
       Event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 5379946787812157721}
+            m_TargetAssemblyTypeName: App.Vibrations.VibrationButton, Assembly-CSharp
+            m_MethodName: SendPlayEvent
+            m_Mode: 0
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: 
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       GameEvents: []
       SoundData:
         SoundSource: 0
@@ -5807,6 +5846,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &5379946787812157721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3548990154357826122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f98e669c66b7224a93fed5c6f5503de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0
 --- !u!1 &4748816925638541207
 GameObject:
   m_ObjectHideFlags: 0
@@ -5999,6 +6051,7 @@ GameObject:
   - component: {fileID: 8647591846391702912}
   - component: {fileID: 4186681209128353736}
   - component: {fileID: 6510919530548761087}
+  - component: {fileID: 5014623529430182230}
   m_Layer: 5
   m_Name: LobbyButton
   m_TagString: Untagged
@@ -6573,7 +6626,19 @@ MonoBehaviour:
         CustomSortingLayer: Default
       Event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 5014623529430182230}
+            m_TargetAssemblyTypeName: App.Vibrations.VibrationButton, Assembly-CSharp
+            m_MethodName: SendPlayEvent
+            m_Mode: 0
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: 
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       GameEvents: []
       SoundData:
         SoundSource: 0
@@ -8412,6 +8477,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &5014623529430182230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5381480708269541734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f98e669c66b7224a93fed5c6f5503de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0
 --- !u!1 &6118903259433240120
 GameObject:
   m_ObjectHideFlags: 0
@@ -8960,6 +9038,7 @@ GameObject:
   - component: {fileID: 6109193286597017539}
   - component: {fileID: 7776827938468128409}
   - component: {fileID: 7697717043686345891}
+  - component: {fileID: 5984110970094539511}
   m_Layer: 5
   m_Name: ContinueButton
   m_TagString: Untagged
@@ -9542,6 +9621,18 @@ MonoBehaviour:
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 5984110970094539511}
+            m_TargetAssemblyTypeName: App.Vibrations.VibrationButton, Assembly-CSharp
+            m_MethodName: SendPlayEvent
+            m_Mode: 0
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: 
               m_IntArgument: 0
               m_FloatArgument: 0
               m_StringArgument: 
@@ -11385,6 +11476,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &5984110970094539511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8741696865861703078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f98e669c66b7224a93fed5c6f5503de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0
 --- !u!1 &9078687476121856643
 GameObject:
   m_ObjectHideFlags: 0
@@ -11530,6 +11634,7 @@ GameObject:
   - component: {fileID: 7671277517945185471}
   - component: {fileID: 5010651259823743747}
   - component: {fileID: 3984296912149380964}
+  - component: {fileID: 2648880856055230477}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -12104,7 +12209,19 @@ MonoBehaviour:
         CustomSortingLayer: Default
       Event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 2648880856055230477}
+            m_TargetAssemblyTypeName: App.Vibrations.VibrationButton, Assembly-CSharp
+            m_MethodName: SendPlayEvent
+            m_Mode: 0
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: 
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       GameEvents: []
       SoundData:
         SoundSource: 0
@@ -13943,3 +14060,16 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &2648880856055230477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9203923354678414278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f98e669c66b7224a93fed5c6f5503de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0
