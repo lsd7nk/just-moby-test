@@ -7,6 +7,7 @@ namespace App
     public sealed class PopupRootContainer : RootContainer
     {
         [SerializeField] private PopupView[] _popups;
+        [SerializeField] private Transform _parent;
 
         protected override void Register(IBaseDIService builder)
         {
@@ -16,7 +17,7 @@ namespace App
             {
                 var popup = _popups[i];
 
-                builder.RegisterComponentInNewPrefab(popup);
+                builder.RegisterComponentInNewPrefab(popup, _parent);
                 builder.Register(popup.ServiceType, ServiceLifeTime.Transient);
             }
         }
