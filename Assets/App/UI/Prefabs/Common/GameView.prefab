@@ -680,6 +680,7 @@ GameObject:
   - component: {fileID: 5012668351011711360}
   - component: {fileID: 5002881729138686691}
   - component: {fileID: 6868429912349690782}
+  - component: {fileID: 3607235719923231305}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -1253,7 +1254,19 @@ MonoBehaviour:
         CustomSortingLayer: Default
       Event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 3607235719923231305}
+            m_TargetAssemblyTypeName: App.Vibrations.VibrationButton, Assembly-CSharp
+            m_MethodName: SendPlayEvent
+            m_Mode: 0
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: 
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       GameEvents: []
       SoundData:
         SoundSource: 0
@@ -3092,3 +3105,16 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &3607235719923231305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7262171600794731171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f98e669c66b7224a93fed5c6f5503de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0

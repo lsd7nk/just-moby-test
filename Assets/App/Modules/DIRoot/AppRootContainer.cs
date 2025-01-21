@@ -1,3 +1,4 @@
+using App.Vibrations;
 using MiniContainer;
 using App.AppStates;
 using StateMachine;
@@ -27,7 +28,13 @@ namespace App
 
             builder.RegisterSingleton<IFirebaseDependenciesService, FirebaseDependenciesService>();
             builder.RegisterSingleton<IAdService, AdService>();
+            builder.RegisterSingleton<VibrationsService>();
             builder.RegisterSingleton<AppConfig>();
+        }
+
+        protected override void Resolve()
+        {
+            DIContainer.Resolve<VibrationsService>();
         }
     }
 }
