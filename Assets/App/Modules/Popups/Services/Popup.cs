@@ -14,9 +14,14 @@ namespace App.Popups
             _view = (TView)view;
         }
 
+        public async UniTask HideAsync()
+        {
+            await _view.HideAsync();
+        }
+
         public void Hide()
         {
-            _view.HideAsync().Forget();
+            _view.Hide();
         }
     }
 }

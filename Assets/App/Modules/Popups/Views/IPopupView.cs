@@ -8,5 +8,6 @@ namespace App.Popups
         Type ServiceType { get; }
 
         UniTask HideAsync();
+        void Hide();
     }
 }

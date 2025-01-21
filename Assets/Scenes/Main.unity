@@ -734,6 +734,7 @@ MonoBehaviour:
   _autoResolveGameObjects: []
   _popups:
   - {fileID: 4256800369051739346, guid: e6228d4724cdcf140880690312262d60, type: 3}
+  - {fileID: 3386662429036749707, guid: ae8503b5251be1f44b6adf4bb5085afb, type: 3}
   _parent: {fileID: 1256101687}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

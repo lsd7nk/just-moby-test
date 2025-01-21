@@ -2550,6 +2550,7 @@ GameObject:
   - component: {fileID: 7044290480184775852}
   - component: {fileID: 6592563451493429282}
   - component: {fileID: 5659489793945307058}
+  - component: {fileID: 7565932454308518624}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -2673,6 +2674,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7565932454308518624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178729200352354554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3888f1f362ba544780eb9db95df4789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: {fileID: 5659489793945307058}
+  _key: settings
 --- !u!1 &1892806468241454311
 GameObject:
   m_ObjectHideFlags: 0
@@ -2685,7 +2700,7 @@ GameObject:
   - component: {fileID: 3310187074886257678}
   - component: {fileID: 2221302861554256314}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2861,8 +2876,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <UIPopup>k__BackingField: {fileID: 8808915860124991076}
+  _languageButton: {fileID: 7198942782992418620}
   _restartButton: {fileID: 5010651259823743747}
   _lobbyButton: {fileID: 4186681209128353736}
+  _languageLabel: {fileID: 2221302861554256314}
+  _versionLabel: {fileID: 6703838502960502921}
 --- !u!223 &8823638791944518850
 Canvas:
   m_ObjectHideFlags: 0
@@ -8730,6 +8748,7 @@ GameObject:
   - component: {fileID: 2412765612418090438}
   - component: {fileID: 2704594020039448831}
   - component: {fileID: 9038956154092778406}
+  - component: {fileID: 2207617372034206039}
   m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
@@ -8853,6 +8872,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2207617372034206039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6964938629114506878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3888f1f362ba544780eb9db95df4789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: {fileID: 9038956154092778406}
+  _key: language
 --- !u!1 &7140207493581205221
 GameObject:
   m_ObjectHideFlags: 0

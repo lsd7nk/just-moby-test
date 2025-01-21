@@ -1,0 +1,30 @@
+[
+	{
+		"tags": [ "language" ],
+		"topic": "Language"
+	},
+	{
+		"tags": [ "language", "en" ],
+		"topic": "English"
+	},
+	{
+		"tags": [ "language", "ru" ],
+		"topic": "Russia"
+	},
+	{
+		"tags": [ "button", "play" ],
+		"topic": "Play"
+	},
+	{
+		"tags": [ "settings" ],
+		"topic": "Settings"
+	},
+	{
+		"tags": [ "version" ],
+		"topic": "Version: {0}"
+	},
+	{
+		"tags": [ "loading" ],
+		"topic": "Loading..."
+	}
+]
