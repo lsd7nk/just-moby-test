@@ -15,7 +15,7 @@ namespace App.Common
             OnViewSet();
         }
 
-        public async UniTask HideViewAsync(CancellationToken cancellationToken)
+        public virtual async UniTask HideViewAsync(CancellationToken cancellationToken)
         {
             await _view.HideAsync(cancellationToken);
         }

@@ -1,3 +1,4 @@
+using Random = UnityEngine.Random;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using System.Threading;
@@ -10,6 +11,7 @@ namespace App.Core
 {
     public interface IFiguresBuilder : IViewService<FiguresBuilderView>
     {
+        public event Action<FigureModel, Vector3> OnFigurePlacedCorrectlyEvent;
         public event Action<FigureModel> OnFigurePlacedUncorrectlyEvent;
         public event Action<FigureModel> OnFigureTakeFromScrollEvent;
 
@@ -21,7 +23,9 @@ namespace App.Core
     public sealed class FiguresBuilder : IFiguresBuilder
     {
         private const float PLACE_OFFSET = 10f;
+        private const float MULTIPLIER_0_5 = 0.5f;
 
+        public event Action<FigureModel, Vector3> OnFigurePlacedCorrectlyEvent;
         public event Action<FigureModel> OnFigurePlacedUncorrectlyEvent;
         public event Action<FigureModel> OnFigureTakeFromScrollEvent;
 
@@ -66,9 +70,16 @@ namespace App.Core
             _figures.Clear();
         }
 
-        public UniTask HideViewAsync(CancellationToken cancellationToken)
+        public async UniTask HideViewAsync(CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            var placedFigureRects = new RectTransform[_placedFigures.Count];
+
+            for (int i = 0; i < placedFigureRects.Length; ++i)
+            {
+                placedFigureRects[i] = _placedFigures[i].GetRectTransform();
+            }
+
+            await _view.HideAsync(placedFigureRects, cancellationToken);
         }
 
         private void OnFigureDragStarted(DraggableObject draggable)
@@ -87,7 +98,16 @@ namespace App.Core
             {
                 _figures.Remove(figure);
                 OnFigurePlacedUncorrectlyEvent?.Invoke(figure);
+
+                return;
             }
+
+            if (firstPlace)
+            {
+                return;
+            }
+
+            OnFigurePlacedCorrectlyEvent?.Invoke(figure, GetPlacePosition(figure));
         }
 
         private bool TryUnplaceFigure(DraggableObject draggable, out FigureModel figure)
@@ -152,6 +172,24 @@ namespace App.Core
         {
             figure.IsPlaced = true;
             _placedFigures.Add(figure);
+        }
+
+        private Vector3 GetPlacePosition(FigureModel figure)
+        {
+            var lastPlacedFigure = _placedFigures[^2];
+            var lastPlacedPosition = lastPlacedFigure.GetPosition();
+
+            int xMultiplier = Random.Range(-1, 2);
+
+            float xMax = figure.Width * MULTIPLIER_0_5;
+            float xMin = 0f;
+
+            Debug.Log($"min: {xMin}, max: {xMax}, mult: {xMultiplier}");
+
+            lastPlacedPosition.y += figure.Height + PLACE_OFFSET * MULTIPLIER_0_5;
+            lastPlacedPosition.x += Random.Range(xMin, xMax) * xMultiplier;
+
+            return lastPlacedPosition;
         }
 
         private FigureModel GetFigure(DraggableObject draggable)

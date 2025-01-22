@@ -28,13 +28,12 @@ namespace App.Core
 
         private RectTransform _dragContainer;
         private RectTransform _rectTransform;
-        private Transform _startDragParent;
 
         private ScrollRect _containerScrollRect;
         private Camera _camera;
 
         private Vector3 _startDragPointerScreenPosition;
-        private Vector3 _startDragLocalPosition;
+        private Vector3 _startDragPosition;
         private Vector3 _startDragScale;
 
         private float _canvasPlaneDistance = 0.0f;
@@ -51,7 +50,7 @@ namespace App.Core
                 return;
             }
 
-            _startDragLocalPosition = _rectTransform.localPosition;
+            _startDragPosition = _rectTransform.position;
             _startDragPointerScreenPosition = Input.mousePosition;
 
             if (_rectTransform.parent != _dragContainer)
@@ -76,7 +75,7 @@ namespace App.Core
                 return;
             }
 
-            _startDragLocalPosition = _rectTransform.localPosition;
+            _startDragPosition = _rectTransform.position;
             _startDragPointerScreenPosition = Input.mousePosition;
 
             if (_rectTransform.parent != _dragContainer)
@@ -97,8 +96,6 @@ namespace App.Core
             _rectTransform.anchorMin = VECTOR_0_5;
             _rectTransform.anchorMax = VECTOR_0_5;
             _rectTransform.pivot = VECTOR_0_5;
-
-            _startDragParent = _rectTransform.parent;
 
             _rectTransform.SetParent(_dragContainer, true);
 
@@ -241,10 +238,7 @@ namespace App.Core
 
         private void MoveToStartDragPosition()
         {
-            _rectTransform.SetParent(_startDragParent, true);
-
-            _rectTransform.localPosition = _startDragLocalPosition;
-            _startDragParent = null;
+            _rectTransform.position = _startDragPosition;
         }
 
         private Vector3 GetMousePosition(float offset = 0)

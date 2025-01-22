@@ -77,6 +77,16 @@ namespace App.Common.Views
                     completeCallback?.Invoke();
                 });
         }
+
+        public void PlayJumpAnimation(RectTransform rectTransform, Vector3 position, Action completeCallback = null)
+        {
+            rectTransform.DOLocalJump(position, 500, 1, 0.6f)
+                .SetLink(rectTransform.gameObject)
+                .OnComplete(() =>
+                {
+                    completeCallback?.Invoke();
+                });
+        }
     }
 
 

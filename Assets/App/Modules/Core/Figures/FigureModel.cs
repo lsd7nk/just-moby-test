@@ -5,6 +5,9 @@ namespace App.Core
 {
     public sealed class FigureModel : IDisposable
     {
+        public float Width => _view.Width;
+        public float Height => _view.Height;
+
         public bool IsPlaced { get; set; }
 
         public readonly Color Color;
@@ -25,7 +28,7 @@ namespace App.Core
 
         public Vector3 GetPosition()
         {
-            return _view.transform.position;
+            return _view.RectTransform.localPosition;
         }
 
         public RectTransform GetRectTransform()

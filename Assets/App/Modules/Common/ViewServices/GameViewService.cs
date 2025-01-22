@@ -1,4 +1,7 @@
-﻿using App.Common.Views;
+﻿using Cysharp.Threading.Tasks;
+using System.Threading;
+using App.Common.Views;
+using UnityEngine;
 using App.Popups;
 using App.Core;
 using App.Ads;
@@ -32,18 +35,27 @@ namespace App.Common
             _figuresBuilder.SetView(_view.FiguresBuilderView);
             _figuresBuilder.Initialize();
 
-            _figuresBuilder.OnFigurePlacedUncorrectlyEvent += OnFigurePlacedUncorrectly;
-            _figuresBuilder.OnFigureTakeFromScrollEvent += OnFigureTakeFromScroll;
+            _figuresBuilder.OnFigurePlacedUncorrectlyEvent += DestroyFigure;
+            _figuresBuilder.OnFigurePlacedCorrectlyEvent += MoveFigure;
+            _figuresBuilder.OnFigureTakeFromScrollEvent += CopyFigure;
 
             CreateFigures();
         }
 
         public void Dispose()
         {
-            _figuresBuilder.OnFigurePlacedUncorrectlyEvent -= OnFigurePlacedUncorrectly;
-            _figuresBuilder.OnFigureTakeFromScrollEvent -= OnFigureTakeFromScroll;
+            _figuresBuilder.OnFigurePlacedUncorrectlyEvent -= DestroyFigure;
+            _figuresBuilder.OnFigurePlacedCorrectlyEvent -= MoveFigure;
+            _figuresBuilder.OnFigureTakeFromScrollEvent -= CopyFigure;
 
             _figuresBuilder.Dispose();
+        }
+
+        public override async UniTask HideViewAsync(CancellationToken cancellationToken)
+        {
+            _figuresBuilder.HideViewAsync(cancellationToken).Forget();
+
+            await base.HideViewAsync(cancellationToken);
         }
 
         protected override void OnViewSet()
@@ -68,16 +80,6 @@ namespace App.Common
             }
         }
 
-        private void OnFigureTakeFromScroll(FigureModel figure)
-        {
-            CopyFigure(figure);
-        }
-
-        private void OnFigurePlacedUncorrectly(FigureModel figure)
-        {
-            DestroyFigure(figure);
-        }
-
         private void CopyFigure(FigureModel figure)
         {
             var copiedFigure = _figureModelsFactory.GetFigureModel(figure.Color, figure.Index);
@@ -95,6 +97,19 @@ namespace App.Common
             _view.PlayDestroyAnimation(figure.GetRectTransform(), () =>
             {
                 figure.Dispose();
+            });
+        }
+
+        private void MoveFigure(FigureModel figure, Vector3 position)
+        {
+            var draggable = figure.GetDraggable();
+
+            draggable.Interactable = false;
+            draggable.CancelDrag();
+
+            _view.PlayJumpAnimation(figure.GetRectTransform(), position, () =>
+            {
+                draggable.Interactable = true;
             });
         }
 
