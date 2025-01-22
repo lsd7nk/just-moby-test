@@ -90,6 +90,8 @@ namespace App.Common
 
         private void DestroyFigure(FigureModel figure)
         {
+            figure.GetDraggable().Interactable = false;
+
             _view.PlayDestroyAnimation(figure.GetRectTransform(), () =>
             {
                 figure.Dispose();
