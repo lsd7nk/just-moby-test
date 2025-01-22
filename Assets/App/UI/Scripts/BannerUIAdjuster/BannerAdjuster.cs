@@ -24,7 +24,7 @@ namespace App.UI
 
         protected void Initialize()
         {
-            if (IsBannerShowing)
+            if (IsBannerAllowing)
             {
                 OnBannerShown();
             }
