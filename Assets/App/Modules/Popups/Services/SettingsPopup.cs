@@ -36,7 +36,10 @@ namespace App.Popups
             OnLocalize();
 
             _view.RefreshButtons(_inGameState);
+            _view.SetVibrationToggleState(true);
+
             _view.AddLanguageButtonOnCickHandler(OnLanguageButtonClick);
+            _view.AddVibrationToggleOnValueChanged(OnVibrationValueChanged);
 
             if (_inGameState)
             {
@@ -50,6 +53,11 @@ namespace App.Popups
         public void Dispose()
         {
             LocalizationProvider.OnLocalizeEvent -= OnLocalize;
+        }
+
+        private void OnVibrationValueChanged(bool state)
+        {
+            // to do
         }
 
         private void OnLocalize()

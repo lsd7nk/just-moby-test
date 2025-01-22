@@ -26,5 +26,9 @@
 	{
 		"tags": [ "loading" ],
 		"topic": "Загрузка..."
+	},
+	{
+		"tags": [ "vibration" ],
+		"topic": "Вибрация"
 	}
 ]
