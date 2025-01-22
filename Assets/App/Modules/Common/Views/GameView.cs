@@ -1,6 +1,7 @@
 ﻿using Doozy.Engine.UI;
 using UnityEngine.UI;
 using UnityEngine;
+using DG.Tweening;
 using App.Utils;
 using App.Core;
 using System;
@@ -9,6 +10,8 @@ namespace App.Common.Views
 {
     public partial class GameView : AdsView
     {
+        private const float DESTROY_ANIMATION_DURATION = 0.2f;
+
         [field: Space(10), SerializeField]
         public FiguresBuilderView FiguresBuilderView { get; private set; }
 
@@ -62,6 +65,17 @@ namespace App.Common.Views
             draggable.SetScrollRect(_scroll);
 
             return figureView;
+        }
+
+        public void PlayDestroyAnimation(RectTransform rectTransform, Action completeCallback = null)
+        {
+            rectTransform.DOScale(Vector3.zero, DESTROY_ANIMATION_DURATION)
+                .SetLink(rectTransform.gameObject)
+                .SetEase(Ease.InOutCubic)
+                .OnComplete(() =>
+                {
+                    completeCallback?.Invoke();
+                });
         }
     }
 

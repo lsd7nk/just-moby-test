@@ -3,7 +3,6 @@ using App.Popups;
 using App.Core;
 using App.Ads;
 using System;
-using Cysharp.Threading.Tasks;
 
 namespace App.Common
 {
@@ -33,6 +32,7 @@ namespace App.Common
             _figuresBuilder.SetView(_view.FiguresBuilderView);
             _figuresBuilder.Initialize();
 
+            _figuresBuilder.OnFigurePlacedUncorrectlyEvent += OnFigurePlacedUncorrectly;
             _figuresBuilder.OnFigureTakeFromScrollEvent += OnFigureTakeFromScroll;
 
             CreateFigures();
@@ -40,7 +40,9 @@ namespace App.Common
 
         public void Dispose()
         {
+            _figuresBuilder.OnFigurePlacedUncorrectlyEvent -= OnFigurePlacedUncorrectly;
             _figuresBuilder.OnFigureTakeFromScrollEvent -= OnFigureTakeFromScroll;
+
             _figuresBuilder.Dispose();
         }
 
@@ -66,6 +68,16 @@ namespace App.Common
             }
         }
 
+        private void OnFigureTakeFromScroll(FigureModel figure)
+        {
+            CopyFigure(figure);
+        }
+
+        private void OnFigurePlacedUncorrectly(FigureModel figure)
+        {
+            DestroyFigure(figure);
+        }
+
         private void CopyFigure(FigureModel figure)
         {
             var copiedFigure = _figureModelsFactory.GetFigureModel(figure.Color, figure.Index);
@@ -76,9 +88,12 @@ namespace App.Common
             _figuresBuilder.AddFigure(copiedFigure);
         }
 
-        private void OnFigureTakeFromScroll(FigureModel figure)
+        private void DestroyFigure(FigureModel figure)
         {
-            CopyFigure(figure);
+            _view.PlayDestroyAnimation(figure.GetRectTransform(), () =>
+            {
+                figure.Dispose();
+            });
         }
 
         private void OnSettingsButtonClick()

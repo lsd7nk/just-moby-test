@@ -1,8 +1,9 @@
 using UnityEngine;
+using System;
 
 namespace App.Core
 {
-    public sealed class FigureModel
+    public sealed class FigureModel : IDisposable
     {
         public bool IsPlaced { get; set; }
 
@@ -35,6 +36,11 @@ namespace App.Core
         public DraggableObject GetDraggable()
         {
             return _view.GetDraggable();
+        }
+
+        public void Dispose()
+        {
+            GameObject.Destroy(_view.gameObject);
         }
     }
 }

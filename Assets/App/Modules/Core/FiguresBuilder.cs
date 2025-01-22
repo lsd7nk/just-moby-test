@@ -10,6 +10,7 @@ namespace App.Core
 {
     public interface IFiguresBuilder : IViewService<FiguresBuilderView>
     {
+        public event Action<FigureModel> OnFigurePlacedUncorrectlyEvent;
         public event Action<FigureModel> OnFigureTakeFromScrollEvent;
 
         void AddFigure(FigureModel model);
@@ -19,8 +20,9 @@ namespace App.Core
 
     public sealed class FiguresBuilder : IFiguresBuilder
     {
-        private const float PLACE_OFFSET = 20f;
+        private const float PLACE_OFFSET = 15f;
 
+        public event Action<FigureModel> OnFigurePlacedUncorrectlyEvent;
         public event Action<FigureModel> OnFigureTakeFromScrollEvent;
 
         private FiguresBuilderView _view;
@@ -81,12 +83,11 @@ namespace App.Core
         {
             bool firstPlace = _placedFigures.Count == 0;
 
-            if (TryPlaceFigure(draggable, firstPlace))
+            if (!TryPlaceFigure(draggable, firstPlace, out var figure))
             {
-                // to do: place figure
+                _figures.Remove(figure);
+                OnFigurePlacedUncorrectlyEvent?.Invoke(figure);
             }
-
-
         }
 
         private bool TryUnplaceFigure(DraggableObject draggable, out FigureModel figure)
@@ -107,15 +108,9 @@ namespace App.Core
             return false;
         }
 
-        private void UnplaceFigure(FigureModel figure)
+        private bool TryPlaceFigure(DraggableObject draggable, bool firstPlace, out FigureModel figure)
         {
-            figure.IsPlaced = false;
-            _placedFigures.Remove(figure);
-        }
-
-        private bool TryPlaceFigure(DraggableObject draggable, bool firstPlace)
-        {
-            var figure = GetFigure(draggable);
+            figure = GetFigure(draggable);
 
             if (figure == null)
             {
@@ -138,6 +133,12 @@ namespace App.Core
             }
 
             return false;
+        }
+
+        private void UnplaceFigure(FigureModel figure)
+        {
+            figure.IsPlaced = false;
+            _placedFigures.Remove(figure);
         }
 
         private void PlaceFigure(FigureModel figure)
