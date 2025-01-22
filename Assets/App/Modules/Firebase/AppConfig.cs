@@ -6,6 +6,7 @@ namespace App
     public sealed class AppConfig : FirebaseConfig
     {
         public bool BannerAdEnabled { get; private set; }
+        public int FiguresCount { get; private set; }
 
         public AppConfig(IFirebaseDependenciesService firebase) : base(firebase, TimeSpan.FromSeconds(4)) { }
 
@@ -14,6 +15,7 @@ namespace App
             base.OnSuccessfulCloudLoad();
 
             BannerAdEnabled = GetBoolValue(nameof(BannerAdEnabled));
+            FiguresCount = GetIntValue(nameof(FiguresCount));
         }
 
         protected override void OnFailedCloudLoad()
@@ -23,6 +25,7 @@ namespace App
             var settings = SettingsProvider.Get<ConfigSettings>();
 
             BannerAdEnabled = settings.BannerAdEnabled;
+            FiguresCount = settings.FiguresCount;
         }
     }
 }
