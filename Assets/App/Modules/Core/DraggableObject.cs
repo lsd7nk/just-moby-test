@@ -14,9 +14,9 @@ namespace App.Core
         IEndDragHandler
     {
         private const float SCALE_UP_DURATION = 0.2f;
-        public const float TWEEN_DURATION = 0.4f;
+        private readonly Vector2 VECTOR_0_5 = new Vector2(0.5f, 0.5f);
 
-        public static float DragOffset => 0.1f * Screen.width;
+        public static float DragOffset => 0.075f * Screen.width;
 
         [field: SerializeField] public bool Interactable { get; set; } = true;
         [field: SerializeField] public bool ApplyDragThreshold { get; set; } = true;
@@ -41,7 +41,7 @@ namespace App.Core
         private bool _dragging = false;
         private float _dragOffset;
 
-        private Tween[] _scaleUpTweens = new Tween[2];
+        private Tween _scaleUpTween;
 
         public void OnPointerDown(PointerEventData eventData)
         {
@@ -92,35 +92,25 @@ namespace App.Core
         private void BeginDragging()
         {
             _dragging = true;
-
             _startDragScale = _rectTransform.localScale;
 
-            _rectTransform.anchorMin = new Vector2(0.5f, 0.5f);
-            _rectTransform.anchorMax = new Vector2(0.5f, 0.5f);
-            _rectTransform.pivot = new Vector2(0.5f, 0.5f);
+            _rectTransform.anchorMin = VECTOR_0_5;
+            _rectTransform.anchorMax = VECTOR_0_5;
+            _rectTransform.pivot = VECTOR_0_5;
 
             _startDragParent = _rectTransform.parent;
 
-            if (_dragContainer != null)
-            {
-                _rectTransform.SetParent(_dragContainer, true);
-            }
-            else
-            {
-                _rectTransform.SetSiblingIndex(_rectTransform.parent.childCount - 1);
-            }
+            _rectTransform.SetParent(_dragContainer, true);
 
             _dragOffset = 0.0f;
-            Vector3 pointerOffset = _rectTransform.position - GetMousePosition(_dragOffset);
-            _scaleUpTweens[0] = _rectTransform.DOScale(_startDragScale, SCALE_UP_DURATION).SetEase(Ease.InOutSine);
-            _scaleUpTweens[1] = DOTween.To(() => _dragOffset, v =>
+            var pointerOffset = _rectTransform.position - GetMousePosition(_dragOffset);
+
+            _scaleUpTween = DOTween.To(() => _dragOffset, v =>
             {
                 _dragOffset = v;
                 var t = v / DragOffset;
                 _rectTransform.position = GetMousePosition(_dragOffset) + Vector3.Lerp(pointerOffset, Vector3.zero, t);
-            },
-                DragOffset,
-                SCALE_UP_DURATION)
+            }, DragOffset, SCALE_UP_DURATION)
                 .SetEase(Ease.InOutSine);
 
             OnDragStartedEvent?.Invoke(this);
@@ -231,25 +221,22 @@ namespace App.Core
 
             _dragging = false;
 
-            KillScaleUpTweens();
+            KillScaleUpTween();
 
             _rectTransform.localScale = _startDragScale;
 
             OnDragEndedEvent?.Invoke(this);
         }
 
-        private void KillScaleUpTweens()
+        private void KillScaleUpTween()
         {
-            for (int i = 0; i < _scaleUpTweens.Length; i++)
+            if (_scaleUpTween == null || !_scaleUpTween.active)
             {
-                var tween = _scaleUpTweens[i];
-
-                if (tween != null && tween.active)
-                {
-                    tween.Kill();
-                    _scaleUpTweens[i] = null;
-                }
+                return;
             }
+
+            _scaleUpTween.Kill();
+            _scaleUpTween = null;
         }
 
         private void MoveToStartDragPosition()
@@ -262,7 +249,7 @@ namespace App.Core
 
         private Vector3 GetMousePosition(float offset = 0)
         {
-            Vector3 pointerPosition = Input.mousePosition;
+            var pointerPosition = Input.mousePosition;
             pointerPosition.y += offset;
 
             if (_camera != null)
