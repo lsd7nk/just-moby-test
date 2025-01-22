@@ -7058,7 +7058,7 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-        StartDelay: 0.5
+        StartDelay: 0.75
         Duration: 0.35
       Fade:
         AnimationType: 1

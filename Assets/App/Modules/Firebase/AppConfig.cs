@@ -5,6 +5,7 @@ namespace App
 {
     public sealed class AppConfig : FirebaseConfig
     {
+        public bool VibrationEnabled { get; private set; }
         public bool BannerAdEnabled { get; private set; }
         public int FiguresCount { get; private set; }
 
@@ -14,6 +15,7 @@ namespace App
         {
             base.OnSuccessfulCloudLoad();
 
+            VibrationEnabled = GetBoolValue(nameof(VibrationEnabled));
             BannerAdEnabled = GetBoolValue(nameof(BannerAdEnabled));
             FiguresCount = GetIntValue(nameof(FiguresCount));
         }
@@ -24,6 +26,7 @@ namespace App
 
             var settings = SettingsProvider.Get<ConfigSettings>();
 
+            VibrationEnabled = settings.VibrationEnabled;
             BannerAdEnabled = settings.BannerAdEnabled;
             FiguresCount = settings.FiguresCount;
         }

@@ -8,8 +8,11 @@ namespace App.Data
         public bool VibrationEnabled { get; private set; }
         public string LocaleCode { get; private set; }
 
-        public UserDataService()
+        private readonly AppConfig _config;
+
+        public UserDataService(AppConfig config)
         {
+            _config = config;
             Initialize();
         }
 
@@ -31,7 +34,11 @@ namespace App.Data
         private void Initialize()
         {
             LocaleCode = PlayerPrefs.GetString(Prefs.LOCALE_KEY);
-            VibrationEnabled = PlayerPrefs.GetInt(Prefs.VIBRATION_KEY, 1) == 1
+
+            int defaultVibrationEnabled = _config.VibrationEnabled
+                ? 1 : 0;
+
+            VibrationEnabled = PlayerPrefs.GetInt(Prefs.VIBRATION_KEY, defaultVibrationEnabled) == 1
                 ? true
                 : false;
         }

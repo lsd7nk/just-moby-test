@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f771d9f268e6004da1408f2197c931e, type: 3}
   m_Name: ConfigSettings
   m_EditorClassIdentifier: 
+  <VibrationEnabled>k__BackingField: 1
   <BannerAdEnabled>k__BackingField: 1
+  <FiguresCount>k__BackingField: 20

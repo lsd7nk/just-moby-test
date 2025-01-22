@@ -6,7 +6,7 @@ namespace App.Bootstrap.LoadingSegments
     {
         public override async UniTask Init()
         {
-            await UniTask.Delay(2000);
+            await UniTask.Delay(3000);
         }
     }
 }

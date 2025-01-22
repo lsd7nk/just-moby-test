@@ -34,11 +34,5 @@ namespace App
             builder.RegisterSingleton<UserDataService>();
             builder.RegisterSingleton<AppConfig>();
         }
-
-        protected override void Resolve()
-        {
-            DIContainer.Resolve<UserDataService>();
-            DIContainer.Resolve<VibrationsService>();
-        }
     }
 }

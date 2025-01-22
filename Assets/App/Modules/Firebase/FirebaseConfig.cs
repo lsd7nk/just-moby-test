@@ -100,11 +100,7 @@ namespace App
                 return;
             }
 
-#if UNITY_EDITOR // to do
-            OnFailedCloudLoad();
-#else
             CloudLoad().Forget();
-#endif
         }
     }
 }
