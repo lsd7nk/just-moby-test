@@ -1,6 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using System.Threading;
 using App.Common.Views;
+using App.Localization;
 using App.Vibrations;
 using UnityEngine;
 using App.Events;
@@ -12,6 +13,10 @@ namespace App.Common
 {
     public sealed class GameViewService : ViewService<GameView>, IDisposable
     {
+        private const string FIGURE_PLACED_UNCORRECTLY_KEY = "placed_uncorrectly";
+        private const string FIGURE_PLACED_CORRECTLY_KEY = "placed_correctly";
+        private const string GET_FIGURE_FROM_SCROLL_KEY = "get_from_scroll";
+
         private readonly IPopupFactoryService _popupFactory;
         private readonly VibrationsService _vibrations;
 
@@ -97,6 +102,10 @@ namespace App.Common
             copiedFigure.SetView(figureView);
 
             _figuresBuilder.AddFigure(copiedFigure);
+
+            string disappearingText = LocalizationProvider.GetText(GET_FIGURE_FROM_SCROLL_KEY);
+
+            _view.SetDisappearingText(disappearingText);
             _vibrations.PlayLightImpactVibration();
         }
 
@@ -109,6 +118,9 @@ namespace App.Common
                 figure.Dispose();
             });
 
+            string disappearingText = LocalizationProvider.GetText(FIGURE_PLACED_UNCORRECTLY_KEY);
+
+            _view.SetDisappearingText(disappearingText);
             _vibrations.PlayFailureVibration();
         }
 
@@ -124,6 +136,9 @@ namespace App.Common
                 draggable.Interactable = true;
             });
 
+            string disappearingText = LocalizationProvider.GetText(FIGURE_PLACED_CORRECTLY_KEY);
+
+            _view.SetDisappearingText(disappearingText);
             _vibrations.PlaySuccessVibration();
         }
 
