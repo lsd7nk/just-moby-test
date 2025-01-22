@@ -1,9 +1,11 @@
 ﻿using Cysharp.Threading.Tasks;
 using App.Localization;
+using App.Vibrations;
 using App.AppStates;
 using UnityEngine;
 using App.Common;
 using App.Events;
+using App.Data;
 using System;
 
 namespace App.Popups
@@ -14,14 +16,19 @@ namespace App.Popups
         private const string VERSION_KEY = "version";
 
         private readonly IPopupFactoryService _popupFactory;
+        private readonly VibrationsService _vibrations;
         private readonly AppStateService _appStates;
+        private readonly UserDataService _userData;
 
         private bool _inGameState;
 
-        public SettingsPopup(AppStateService appStates, IPopupFactoryService popupFactory)
+        public SettingsPopup(AppStateService appStates, UserDataService userData,
+            VibrationsService vibrations, IPopupFactoryService popupFactory)
         {
             _popupFactory = popupFactory;
+            _vibrations = vibrations;
             _appStates = appStates;
+            _userData = userData;
         }
 
         public override void Initialize(IPopupView view, params object[] args)
@@ -36,7 +43,7 @@ namespace App.Popups
             OnLocalize();
 
             _view.RefreshButtons(_inGameState);
-            _view.SetVibrationToggleState(true);
+            _view.SetVibrationToggleState(_vibrations.IsEnabled);
 
             _view.AddLanguageButtonOnCickHandler(OnLanguageButtonClick);
             _view.AddVibrationToggleOnValueChanged(OnVibrationValueChanged);
@@ -57,7 +64,8 @@ namespace App.Popups
 
         private void OnVibrationValueChanged(bool state)
         {
-            // to do
+            _userData.SetVibrationEnabled(state);
+            _vibrations.IsEnabled = state;
         }
 
         private void OnLocalize()

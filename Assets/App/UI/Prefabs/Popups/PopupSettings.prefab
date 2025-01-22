@@ -2877,6 +2877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <UIPopup>k__BackingField: {fileID: 8808915860124991076}
   _languageButton: {fileID: 7198942782992418620}
+  _continueButton: {fileID: 7776827938468128409}
   _restartButton: {fileID: 5010651259823743747}
   _lobbyButton: {fileID: 4186681209128353736}
   _languageLabel: {fileID: 2221302861554256314}
