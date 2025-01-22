@@ -97,6 +97,7 @@ namespace App.Common
             copiedFigure.SetView(figureView);
 
             _figuresBuilder.AddFigure(copiedFigure);
+            _vibrations.PlayLightImpactVibration();
         }
 
         private void DestroyFigure(FigureModel figure)
@@ -107,6 +108,8 @@ namespace App.Common
             {
                 figure.Dispose();
             });
+
+            _vibrations.PlayFailureVibration();
         }
 
         private void MoveFigure(FigureModel figure, Vector3 position)
@@ -120,6 +123,8 @@ namespace App.Common
             {
                 draggable.Interactable = true;
             });
+
+            _vibrations.PlaySuccessVibration();
         }
 
         private void OnLevelRestart(RestartLevelEvent e)
