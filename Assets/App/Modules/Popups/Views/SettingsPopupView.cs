@@ -14,6 +14,7 @@ namespace App.Popups
 
         [Header("Buttons")]
         [SerializeField] private UIButton _languageButton;
+        [SerializeField] private UIButton _continueButton;
         [SerializeField] private UIButton _restartButton;
         [SerializeField] private UIButton _lobbyButton;
 
@@ -26,6 +27,7 @@ namespace App.Popups
 
         public void RefreshButtons(bool inGameState)
         {
+            _continueButton.gameObject.SetActive(inGameState);
             _restartButton.gameObject.SetActive(inGameState);
             _lobbyButton.gameObject.SetActive(inGameState);
         }

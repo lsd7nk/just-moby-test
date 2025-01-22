@@ -1,6 +1,6 @@
 using Lofelt.NiceVibrations;
-using UnityEngine;
 using App.Events;
+using App.Data;
 using System;
 
 namespace App.Vibrations
@@ -13,7 +13,6 @@ namespace App.Vibrations
             set
             {
                 HapticController.hapticsEnabled = value;
-                PlayerPrefs.SetInt(/*Prefs.VIBRO_ENABLED*/"v", value ? 1 : 0); // to do
 
                 if (value)
                 {
@@ -27,9 +26,9 @@ namespace App.Vibrations
         }
         public bool Initialized { get; private set; }
 
-        public VibrationsService()
+        public VibrationsService(UserDataService userData)
         {
-            IsEnabled = PlayerPrefs.GetInt(/*Prefs.VIBRO_ENABLED*/"v", 1) == 1;
+            IsEnabled = userData.VibrationEnabled;
 
             if (!IsEnabled)
             {
