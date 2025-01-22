@@ -47,7 +47,7 @@ namespace App.Core
                     .SetLink(rect.gameObject);
             }
 
-            await UniTask.Delay((int)(HIDE_ANIMATION_DURATION * UNI_TASK_DELAY_MULTIPLIER));
+            await UniTask.Delay((int)(HIDE_ANIMATION_DURATION * UNI_TASK_DELAY_MULTIPLIER), cancellationToken: cancellationToken);
         }
 
         private void PlayRotationAnimation(RectTransform rect)

@@ -5,6 +5,7 @@ using DG.Tweening;
 using App.Utils;
 using App.Core;
 using System;
+using App.UI;
 
 namespace App.Common.Views
 {
@@ -12,23 +13,27 @@ namespace App.Common.Views
     {
         private const float DESTROY_ANIMATION_DURATION = 0.2f;
 
-        [field: Space(10), SerializeField]
-        public FiguresBuilderView FiguresBuilderView { get; private set; }
+        private const float JUMP_ANIMATION_DURATION = 0.6f;
+        private const int JUMP_ANIMATION_FORCE = 500;
+
         public int LastSlotIndex { get; private set; }
+
+        [field: Space(10), SerializeField] public FiguresBuilderView FiguresBuilderView { get; private set; }
 
         [Header("Buttons")]
         [SerializeField] private UIButton _settingsButton;
 
         [Header("Prefabs")]
         [SerializeField] private FigureView _figurePrefab;
-        [SerializeField] private FigureSlot _slotPrefab;
 
         [Header("Figures data")]
         [SerializeField] private ScrollRect _scroll;
-        [SerializeField] private RectTransform _slotsParent;
         [SerializeField] private RectTransform _dragContainer;
 
-        [Space(10),SerializeField] private FigureSlot[] _slots;
+        [Space(10), SerializeField] private FigureSlot[] _slots;
+
+        [Header("Other")]
+        [SerializeField] private DisappearingLabel _disappearingLabel;
 
         public void Initialize(int slotsCount)
         {
@@ -42,6 +47,11 @@ namespace App.Common.Views
             }
 
             LastSlotIndex = availableSlotsCount - 1;
+        }
+
+        public void SetDisappearingText(string value)
+        {
+            _disappearingLabel.SetText(value);
         }
 
         public FigureView CreateFigureView(Color color, int index)
@@ -72,7 +82,7 @@ namespace App.Common.Views
 
         public void PlayJumpAnimation(RectTransform rectTransform, Vector3 position, Action completeCallback = null)
         {
-            rectTransform.DOLocalJump(position, 500, 1, 0.6f)
+            rectTransform.DOLocalJump(position, JUMP_ANIMATION_FORCE, 1, JUMP_ANIMATION_DURATION)
                 .SetLink(rectTransform.gameObject)
                 .OnComplete(() =>
                 {

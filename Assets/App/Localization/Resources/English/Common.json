@@ -30,5 +30,18 @@
 	{
 		"tags": [ "vibration" ],
 		"topic": "Vibration"
+	},
+
+	{
+		"tags": [ "placed_uncorrectly" ],
+		"topic": "Try again!"
+	},
+	{
+		"tags": [ "placed_correctly" ],
+		"topic": "Excellent!"
+	},
+	{
+		"tags": [ "get_from_scroll" ],
+		"topic": "The first step!"
 	}
 ]
