@@ -1,8 +1,9 @@
 using UnityEngine;
+using System;
 
 namespace App.Data
 {
-    public sealed class UserDataService
+    public sealed class UserDataService : IDisposable
     {
         public bool VibrationEnabled { get; private set; }
         public string LocaleCode { get; private set; }
@@ -22,10 +23,9 @@ namespace App.Data
             VibrationEnabled = state;
         }
 
-        public void Save()
+        public void Dispose()
         {
-            PlayerPrefs.SetInt(Prefs.VIBRATION_KEY, VibrationEnabled ? 1 : 0);
-            PlayerPrefs.SetString(Prefs.LOCALE_KEY, LocaleCode);
+            Save();
         }
 
         private void Initialize()
@@ -34,6 +34,12 @@ namespace App.Data
             VibrationEnabled = PlayerPrefs.GetInt(Prefs.VIBRATION_KEY, 1) == 1
                 ? true
                 : false;
+        }
+
+        private void Save()
+        {
+            PlayerPrefs.SetInt(Prefs.VIBRATION_KEY, VibrationEnabled ? 1 : 0);
+            PlayerPrefs.SetString(Prefs.LOCALE_KEY, LocaleCode);
         }
     }
 }

@@ -9,18 +9,8 @@ using App.Ads;
 
 namespace App
 {
-    public sealed class AppRootContainer : RootContainer, IContainerApplicationFocusListener
+    public sealed class AppRootContainer : RootContainer
     {
-        public void OnApplicationFocus(bool focus)
-        {
-            if (focus)
-            {
-                return;
-            }
-
-            DIContainer.Resolve<UserDataService>().Save();
-        }
-
         protected override void Register(IBaseDIService builder)
         {
             NativeHeapUtils.ReserveMegabytes(10);
