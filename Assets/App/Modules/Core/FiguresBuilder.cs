@@ -10,7 +10,10 @@ namespace App.Core
 {
     public interface IFiguresBuilder : IViewService<FiguresBuilderView>
     {
+        public event Action<FigureModel> OnFigureTakeFromScrollEvent;
+
         void AddFigure(FigureModel model);
+        void Dispose();
     }
 
 
@@ -18,8 +21,9 @@ namespace App.Core
     {
         private const float PLACE_OFFSET = 20f;
 
-        private FiguresBuilderView _view;
+        public event Action<FigureModel> OnFigureTakeFromScrollEvent;
 
+        private FiguresBuilderView _view;
         private List<FigureModel> _figures;
         private List<FigureModel> _placedFigures;
 
@@ -46,6 +50,20 @@ namespace App.Core
             _figures = new List<FigureModel>();
         }
 
+        public void Dispose()
+        {
+            for (int i = 0; i < _figures.Count; ++i)
+            {
+                var draggable = _figures[i].GetDraggable();
+
+                draggable.OnDragStartedEvent -= OnFigureDragStarted;
+                draggable.OnDragEndedEvent -= OnFigureDragEnded;
+            }
+
+            _placedFigures.Clear();
+            _figures.Clear();
+        }
+
         public UniTask HideViewAsync(CancellationToken cancellationToken)
         {
             throw new System.NotImplementedException();
@@ -53,7 +71,10 @@ namespace App.Core
 
         private void OnFigureDragStarted(DraggableObject draggable)
         {
-
+            if (!TryUnplaceFigure(draggable, out var figure))
+            {
+                OnFigureTakeFromScrollEvent?.Invoke(figure);
+            }
         }
 
         private void OnFigureDragEnded(DraggableObject draggable)
@@ -68,42 +89,43 @@ namespace App.Core
 
         }
 
-        private void UnplaceFigure(DraggableObject draggable)
+        private bool TryUnplaceFigure(DraggableObject draggable, out FigureModel figure)
         {
-            for (int i = 0; i < _figures.Count; ++i)
+            figure = GetFigure(draggable);
+
+            if (figure == null)
             {
-                var figure = _figures[i];
-
-                if (!figure.IsPlaced)
-                {
-                    continue;
-                }
-
-                if (figure.GetDraggable() != draggable)
-                {
-                    continue;
-                }
-
-                figure.IsPlaced = false;
-                _placedFigures.Remove(figure);
-
-                break;
+                return false;
             }
+
+            if (figure.IsPlaced)
+            {
+                UnplaceFigure(figure);
+                return true;
+            }
+
+            return false;
+        }
+
+        private void UnplaceFigure(FigureModel figure)
+        {
+            figure.IsPlaced = false;
+            _placedFigures.Remove(figure);
         }
 
         private bool TryPlaceFigure(DraggableObject draggable, bool firstPlace)
         {
-            if (firstPlace)
-            {
-                PlaceFigure(draggable, true);
-                return true;
-            }
-
             var figure = GetFigure(draggable);
 
             if (figure == null)
             {
                 return false;
+            }
+
+            if (firstPlace)
+            {
+                PlaceFigure(figure);
+                return true;
             }
 
             var lastPlacedFigure = _placedFigures[^1];
@@ -116,18 +138,6 @@ namespace App.Core
             }
 
             return false;
-        }
-
-        private void PlaceFigure(DraggableObject draggable, bool firstPlace)
-        {
-            var figure = GetFigure(draggable);
-
-            if (figure == null)
-            {
-                return;
-            }
-
-            PlaceFigure(figure);
         }
 
         private void PlaceFigure(FigureModel figure)

@@ -7,11 +7,14 @@ namespace App.Core
         public bool IsPlaced { get; set; }
 
         public readonly Color Color;
+        public readonly int Index;
+
         private FigureView _view;
 
-        public FigureModel(Color color)
+        public FigureModel(Color color, int index)
         {
             Color = color;
+            Index = index;
         }
 
         public void SetView(FigureView view)

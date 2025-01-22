@@ -24,11 +24,35 @@ namespace App.Common.Views
         [SerializeField] private RectTransform _slotsParent;
         [SerializeField] private RectTransform _dragContainer;
 
-        public FigureView CreateFigureView(Color color)
+        private FigureSlot[] _slots;
+
+        public void Initialize(int slotsCount)
+        {
+            _slots = new FigureSlot[slotsCount];
+        }
+
+        public FigureView CreateFigureView(Color color, int index)
         {
             var figureSlot = Instantiate(_slotPrefab, _slotsParent, false);
             var figureView = Instantiate(_figurePrefab, figureSlot.transform, false);
 
+            var draggable = figureView.GetDraggable();
+
+            figureSlot.SetDraggableFigure(draggable);
+            figureView.SetColor(color);
+
+            draggable.SetDragContainer(_dragContainer);
+            draggable.SetScrollRect(_scroll);
+
+            _slots[index] = figureSlot;
+
+            return figureView;
+        }
+
+        public FigureView CopyFigureView(Color color, int index)
+        {
+            var figureSlot = _slots[index];
+            var figureView = Instantiate(_figurePrefab, figureSlot.transform, false);
             var draggable = figureView.GetDraggable();
 
             figureSlot.SetDraggableFigure(draggable);
