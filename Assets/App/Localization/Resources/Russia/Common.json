@@ -1,0 +1,47 @@
+[
+	{
+		"tags": [ "language" ],
+		"topic": "Язык"
+	},
+	{
+		"tags": [ "language", "en" ],
+		"topic": "Английский"
+	},
+	{
+		"tags": [ "language", "ru" ],
+		"topic": "Русский"
+	},
+	{
+		"tags": [ "button", "play" ],
+		"topic": "Играть"
+	},
+	{
+		"tags": [ "settings" ],
+		"topic": "Настройки"
+	},
+	{
+		"tags": [ "version" ],
+		"topic": "Версия: {0}"
+	},
+	{
+		"tags": [ "loading" ],
+		"topic": "Загрузка..."
+	},
+	{
+		"tags": [ "vibration" ],
+		"topic": "Вибрация"
+	},
+
+	{
+		"tags": [ "placed_uncorrectly" ],
+		"topic": "Попробуй еще раз!"
+	},
+	{
+		"tags": [ "placed_correctly" ],
+		"topic": "Отлично!"
+	},
+	{
+		"tags": [ "get_from_scroll" ],
+		"topic": "Первый шаг!"
+	}
+]
