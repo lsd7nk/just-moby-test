@@ -3,6 +3,7 @@ using App.Localization;
 using App.AppStates;
 using UnityEngine;
 using App.Common;
+using App.Events;
 using System;
 
 namespace App.Popups
@@ -70,15 +71,14 @@ namespace App.Popups
 
         private void OnRestartButtonClick()
         {
-            // to do
+            _view.Hide();
+            EventSystem.Send<RestartLevelEvent>();
         }
 
         private void OnLobbyButtonClick()
         {
-            _view.HideAsync().ContinueWith(() =>
-            {
-                _appStates.GoToState(AppStateType.Lobby, new AppStatePayload()).Forget();
-            });
+            _view.Hide();
+            _appStates.GoToState(AppStateType.Lobby, new AppStatePayload()).Forget();
         }
     }
 }

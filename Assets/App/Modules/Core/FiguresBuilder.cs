@@ -15,7 +15,9 @@ namespace App.Core
         public event Action<FigureModel> OnFigurePlacedUncorrectlyEvent;
         public event Action<FigureModel> OnFigureTakeFromScrollEvent;
 
+        FigureModel[] GetPlacedFigures();
         void AddFigure(FigureModel model);
+        void OnLevelRestart();
         void Dispose();
     }
 
@@ -32,8 +34,6 @@ namespace App.Core
         private FiguresBuilderView _view;
         private List<FigureModel> _figures;
         private List<FigureModel> _placedFigures;
-
-        private Vector3 _startBuildPosition;
 
         public void SetView(FiguresBuilderView view)
         {
@@ -54,6 +54,24 @@ namespace App.Core
         {
             _placedFigures = new List<FigureModel>();
             _figures = new List<FigureModel>();
+        }
+
+        public FigureModel[] GetPlacedFigures()
+        {
+            return _placedFigures.ToArray();
+        }
+
+        public void OnLevelRestart()
+        {
+            for (int i = 0; i < _placedFigures.Count; ++i)
+            {
+                var draggable = _placedFigures[i].GetDraggable();
+
+                draggable.OnDragStartedEvent -= OnFigureDragStarted;
+                draggable.OnDragEndedEvent -= OnFigureDragEnded;
+            }
+
+            _placedFigures.Clear();
         }
 
         public void Dispose()
@@ -183,8 +201,6 @@ namespace App.Core
 
             float xMax = figure.Width * MULTIPLIER_0_5;
             float xMin = 0f;
-
-            Debug.Log($"min: {xMin}, max: {xMax}, mult: {xMultiplier}");
 
             lastPlacedPosition.y += figure.Height + PLACE_OFFSET * MULTIPLIER_0_5;
             lastPlacedPosition.x += Random.Range(xMin, xMax) * xMultiplier;

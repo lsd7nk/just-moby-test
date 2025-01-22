@@ -2,6 +2,7 @@
 using System.Threading;
 using App.Common.Views;
 using UnityEngine;
+using App.Events;
 using App.Popups;
 using App.Core;
 using App.Ads;
@@ -32,6 +33,8 @@ namespace App.Common
 
         public override void Initialize()
         {
+            EventSystem.Subscribe<RestartLevelEvent>(OnLevelRestart);
+
             _figuresBuilder.SetView(_view.FiguresBuilderView);
             _figuresBuilder.Initialize();
 
@@ -44,6 +47,8 @@ namespace App.Common
 
         public void Dispose()
         {
+            EventSystem.Unsubscribe<RestartLevelEvent>(OnLevelRestart);
+
             _figuresBuilder.OnFigurePlacedUncorrectlyEvent -= DestroyFigure;
             _figuresBuilder.OnFigurePlacedCorrectlyEvent -= MoveFigure;
             _figuresBuilder.OnFigureTakeFromScrollEvent -= CopyFigure;
@@ -66,7 +71,11 @@ namespace App.Common
 
         private void CreateFigures()
         {
-            int figuresCount = _levelModel.FiguresCount;
+            int slotsCount = _view.LastSlotIndex + 1;
+            int figuresCount = _levelModel.FiguresCount > slotsCount
+                ? slotsCount
+                : _levelModel.FiguresCount;
+
             var figures = _figureModelsFactory.GetFigureModels(figuresCount);
 
             for (int i = 0; i < figuresCount; ++i)
@@ -83,7 +92,7 @@ namespace App.Common
         private void CopyFigure(FigureModel figure)
         {
             var copiedFigure = _figureModelsFactory.GetFigureModel(figure.Color, figure.Index);
-            var figureView = _view.CopyFigureView(copiedFigure.Color, copiedFigure.Index);
+            var figureView = _view.CreateFigureView(copiedFigure.Color, copiedFigure.Index);
 
             copiedFigure.SetView(figureView);
 
@@ -111,6 +120,18 @@ namespace App.Common
             {
                 draggable.Interactable = true;
             });
+        }
+
+        private void OnLevelRestart(RestartLevelEvent e)
+        {
+            var placedFigures = _figuresBuilder.GetPlacedFigures();
+
+            for (int i = 0; i < placedFigures.Length; ++i)
+            {
+                placedFigures[i].Dispose();
+            }
+
+            _figuresBuilder.OnLevelRestart();
         }
 
         private void OnSettingsButtonClick()

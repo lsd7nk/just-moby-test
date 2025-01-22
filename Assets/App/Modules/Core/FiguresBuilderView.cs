@@ -15,12 +15,12 @@ namespace App.Core
 
         private float ROTATE_ANIMATION_VALUE = 720f;
 
-        [SerializeField] private RectTransform _fieldRect;
+        [SerializeField] private RectTransform _placeFieldRect;
         [SerializeField] private RectTransform _hideTargetRect;
 
         public bool CheckFigureInField(RectTransform figureRect)
         {
-            return RectUtils.CheckRectInOtherRect(figureRect, _fieldRect);
+            return RectUtils.CheckRectInOtherRect(figureRect, _placeFieldRect);
         }
 
         public async UniTask HideAsync(RectTransform[] rects, CancellationToken cancellationToken)
