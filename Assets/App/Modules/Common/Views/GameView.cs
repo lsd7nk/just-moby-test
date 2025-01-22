@@ -9,6 +9,9 @@ namespace App.Common.Views
 {
     public partial class GameView : AdsView
     {
+        [field: Space(10), SerializeField]
+        public FiguresBuilderView FiguresBuilderView { get; private set; }
+
         [Header("Buttons")]
         [SerializeField] private UIButton _settingsButton;
 
@@ -21,7 +24,7 @@ namespace App.Common.Views
         [SerializeField] private RectTransform _slotsParent;
         [SerializeField] private RectTransform _dragContainer;
 
-        public FigureView CreateFigureView()
+        public FigureView CreateFigureView(Color color)
         {
             var figureSlot = Instantiate(_slotPrefab, _slotsParent, false);
             var figureView = Instantiate(_figurePrefab, figureSlot.transform, false);
@@ -29,6 +32,7 @@ namespace App.Common.Views
             var draggable = figureView.GetDraggable();
 
             figureSlot.SetDraggableFigure(draggable);
+            figureView.SetColor(color);
 
             draggable.SetDragContainer(_dragContainer);
             draggable.SetScrollRect(_scroll);

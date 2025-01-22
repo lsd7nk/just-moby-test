@@ -9,6 +9,7 @@ namespace App.Common
     {
         private readonly IFigureModelsFactory _figureModelsFactory;
         private readonly IPopupFactoryService _popupFactory;
+        private readonly IFiguresBuilder _figuresBuilder;
 
         private readonly LevelModel _levelModel;
 
@@ -19,26 +20,20 @@ namespace App.Common
 
             _figureModelsFactory = new FigureModelsHSVFactory();
             _levelModel = new LevelModel(config.FiguresCount);
+            _figuresBuilder = new FiguresBuilder();
         }
 
         public override void Initialize()
         {
+            _figuresBuilder.SetView(_view.FiguresBuilderView);
+            _figuresBuilder.Initialize();
+
             CreateFigures();
         }
 
         protected override void OnViewSet()
         {
             _view.AddSettingsButtonOnCickHandler(OnSettingsButtonClick);
-        }
-
-        private void OnFigureDragStarted(DraggableObject draggable)
-        {
-            UnityEngine.Debug.Log("OnFigureDragStarted");
-        }
-
-        private void OnFigureDragEnded(DraggableObject draggable)
-        {
-            UnityEngine.Debug.Log("OnFigureDragEnded");
         }
 
         private void CreateFigures()
@@ -48,19 +43,13 @@ namespace App.Common
 
             for (int i = 0; i < figuresCount; ++i)
             {
-                var figureView = _view.CreateFigureView();
-                var draggable = figureView.GetDraggable();
+                var figureModel = figureModels[i];
+                var figureView = _view.CreateFigureView(figureModel.Color);
 
-                figureView.SetColor(figureModels[i].Color);
+                figureModel.SetView(figureView);
 
-                AddFigureEventsListener(draggable);
+                _figuresBuilder.AddFigure(figureModel);
             }
-        }
-
-        private void AddFigureEventsListener(DraggableObject draggable)
-        {
-            draggable.OnDragStartedEvent += OnFigureDragStarted;
-            draggable.OnDragEndedEvent += OnFigureDragEnded;
         }
 
         private void OnSettingsButtonClick()

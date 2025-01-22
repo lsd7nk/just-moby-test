@@ -156,5 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63fc5eb90a00fa5499a0623c4a2167c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <RectTransform>k__BackingField: {fileID: 7195220353252096887}
   _draggable: {fileID: 5050746433739832717}
   _image: {fileID: 2149469009833612552}
