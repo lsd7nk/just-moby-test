@@ -20,7 +20,7 @@ namespace App.Core
 
     public sealed class FiguresBuilder : IFiguresBuilder
     {
-        private const float PLACE_OFFSET = 15f;
+        private const float PLACE_OFFSET = 10f;
 
         public event Action<FigureModel> OnFigurePlacedUncorrectlyEvent;
         public event Action<FigureModel> OnFigureTakeFromScrollEvent;
@@ -113,6 +113,13 @@ namespace App.Core
             figure = GetFigure(draggable);
 
             if (figure == null)
+            {
+                return false;
+            }
+
+            var figureRect = figure.GetRectTransform();
+
+            if (!_view.CheckFigureInField(figureRect))
             {
                 return false;
             }

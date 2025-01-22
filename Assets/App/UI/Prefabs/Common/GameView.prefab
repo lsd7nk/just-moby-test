@@ -1983,6 +1983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4198351775385334839}
   - component: {fileID: 4880556030069092002}
+  - component: {fileID: 4537284521929844644}
   - component: {fileID: 804645202438653026}
   m_Layer: 5
   m_Name: GameView
@@ -2032,12 +2033,26 @@ MonoBehaviour:
   - {fileID: 8289654588423926297}
   - {fileID: 5211157808687881148}
   <BannerAdjuster>k__BackingField: {fileID: 804645202438653026}
+  <FiguresBuilderView>k__BackingField: {fileID: 4537284521929844644}
   _settingsButton: {fileID: 5002881729138686691}
   _figurePrefab: {fileID: 7048731164894733908, guid: acd82de3fb95f4f409e17e860d7d09c8, type: 3}
   _slotPrefab: {fileID: 5909876414700195861, guid: 8c6ecf51c47bc9f418c2eadb4ba7f504, type: 3}
   _scroll: {fileID: 1902943557559515177}
   _slotsParent: {fileID: 169154104243542869}
   _dragContainer: {fileID: 1612223053290872620}
+--- !u!114 &4537284521929844644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3045135858804145787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a4e85e8946a5b8449692f0f14cf6634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fieldRect: {fileID: 8678775376387134568}
 --- !u!114 &804645202438653026
 MonoBehaviour:
   m_ObjectHideFlags: 0

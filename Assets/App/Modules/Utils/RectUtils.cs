@@ -4,6 +4,14 @@ namespace App.Utils
 {
     public static class RectUtils
     {
+        public static bool CheckRectInOtherRect(RectTransform rect1, RectTransform rect2)
+        {
+            var parentRect = GetWorldRect(rect2);
+            var childRect = GetWorldRect(rect1);
+
+            return !CheckObjectOutOfOtherObject(parentRect, childRect);
+        }
+
         public static bool CheckRectsTouching(RectTransform rect1, RectTransform rect2, float offset = 0)
         {
             var rect1World = GetWorldRect(rect1);
@@ -12,9 +20,20 @@ namespace App.Utils
             return CheckBottomTouchesTop(rect1World, rect2World, offset);
         }
 
-        public static bool CheckBottomTouchesTop(Rect rect1, Rect rect2, float offset = 0)
+        private static bool CheckBottomTouchesTop(Rect rect1, Rect rect2, float offset = 0)
         {
             return Mathf.Abs(rect1.yMin - rect2.yMax) <= offset;
+        }
+
+        private static bool CheckObjectOutOfOtherObject(Rect parentRect, Rect childRect)
+        {
+            if (childRect.xMin < parentRect.xMin || childRect.xMax > parentRect.xMax ||
+                childRect.yMin < parentRect.yMin || childRect.yMax > parentRect.yMax)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private static Rect GetWorldRect(RectTransform rectTransform)
