@@ -459,7 +459,7 @@ MonoBehaviour:
   AutoHideAfterShow: 0
   AutoHideAfterShowDelay: 3
   AutoSelectButtonAfterShow: 0
-  BehaviorAtStart: 2
+  BehaviorAtStart: 0
   CustomStartAnchoredPosition: {x: 0, y: 0, z: 0}
   DeselectAnyButtonSelectedOnHide: 0
   DeselectAnyButtonSelectedOnShow: 0
@@ -790,7 +790,7 @@ MonoBehaviour:
         Duration: 1
       Scale:
         AnimationType: 1
-        Enabled: 1
+        Enabled: 0
         From: {x: 0.7, y: 0.7, z: 1}
         To: {x: 0, y: 0, z: 0}
         By: {x: 0, y: 0, z: 0}
@@ -811,7 +811,7 @@ MonoBehaviour:
         Duration: 0.4
       Fade:
         AnimationType: 1
-        Enabled: 1
+        Enabled: 0
         From: 0
         To: 0
         By: 0.5
@@ -877,7 +877,7 @@ MonoBehaviour:
   TargetOrientation: 2
   UpdateHideProgressorOnShow: 0
   UpdateShowProgressorOnHide: 0
-  UseCustomStartAnchoredPosition: 1
+  UseCustomStartAnchoredPosition: 0
   ViewCategory: General
   ViewName: Unnamed
 --- !u!1 &8976681359475423991
