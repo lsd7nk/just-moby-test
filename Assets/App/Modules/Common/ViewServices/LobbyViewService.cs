@@ -8,25 +8,21 @@ namespace App.Common
 {
     public sealed class LobbyViewService : ViewService<LobbyView>
     {
+        private readonly AdInitializationService _adInitialization;
         private readonly IPopupFactoryService _popupFactory;
         private readonly AppStateService _appStates;
-        private readonly IAdService _adService;
-        private readonly AppConfig _config;
 
-        public LobbyViewService(IAdService adService, IPopupFactoryService popupFactory,
-            AppConfig config, AppStateService appStates)
+        public LobbyViewService(IPopupFactoryService popupFactory,
+            AdInitializationService adInitialization, AppStateService appStates)
         {
+            _adInitialization = adInitialization;
             _popupFactory = popupFactory;
             _appStates = appStates;
-            _adService = adService;
-            _config = config;
         }
 
         public override void Initialize()
         {
-            // to do: add AdInitializationService
-            _adService.Banner.Allowed = _config.BannerAdEnabled;
-            _adService.Banner.Show();
+            _adInitialization.Initialize();
         }
 
         protected override void OnViewSet()

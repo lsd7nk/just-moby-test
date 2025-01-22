@@ -1,11 +1,11 @@
 ﻿using Cysharp.Threading.Tasks;
 using System.Threading;
 using App.Common.Views;
+using App.Vibrations;
 using UnityEngine;
 using App.Events;
 using App.Popups;
 using App.Core;
-using App.Ads;
 using System;
 
 namespace App.Common
@@ -13,20 +13,20 @@ namespace App.Common
     public sealed class GameViewService : ViewService<GameView>, IDisposable
     {
         private readonly IPopupFactoryService _popupFactory;
-        private readonly AppConfig _appConfig;
+        private readonly VibrationsService _vibrations;
 
         private readonly IFigureModelsFactory _figureModelsFactory;
         private readonly IFiguresBuilder _figuresBuilder;
 
         private readonly LevelModel _levelModel;
 
-        public GameViewService(IAdService adService, IPopupFactoryService popupFactory,
-            AppConfig appConfig, AppStateService appStates)
+        public GameViewService(IPopupFactoryService popupFactory,
+            AppConfig appConfig, VibrationsService vibrations)
         {
             _popupFactory = popupFactory;
-            _appConfig = appConfig;
+            _vibrations = vibrations;
 
-            _levelModel = new LevelModel(_appConfig.FiguresCount);
+            _levelModel = new LevelModel(appConfig.FiguresCount);
             _figureModelsFactory = new FigureModelsHSVFactory();
             _figuresBuilder = new FiguresBuilder();
         }
@@ -65,7 +65,7 @@ namespace App.Common
 
         protected override void OnViewSet()
         {
-            _view.Initialize(_appConfig.FiguresCount);
+            _view.Initialize(_levelModel.FiguresCount);
             _view.AddSettingsButtonOnCickHandler(OnSettingsButtonClick);
         }
 

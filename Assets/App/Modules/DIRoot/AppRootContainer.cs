@@ -38,6 +38,7 @@ namespace App
             builder.RegisterScoped<GameViewService>();
 
             builder.RegisterSingleton<IFirebaseDependenciesService, FirebaseDependenciesService>();
+            builder.RegisterSingleton<AdInitializationService>();
             builder.RegisterSingleton<IAdService, AdService>();
             builder.RegisterSingleton<VibrationsService>();
             builder.RegisterSingleton<UserDataService>();
