@@ -15,6 +15,8 @@ namespace App.Ads
     {
 #if UNITY_ANDROID
 		private const string APP_KEY = "20c643a55";
+#else
+        private const string APP_KEY = "";
 #endif
 
         public AdService() : base(APP_KEY, true)
